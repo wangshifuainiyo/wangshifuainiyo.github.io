@@ -18,8 +18,9 @@ layout: default
 			{{- _javamianshi.date | date_to_long_string -}}
 		{%- endcapture -%}
 		{%- capture _excerpt -%}<p>{{- _javamianshi.excerpt | strip_html | truncatewords: 100 -}}</p>{%- endcapture -%}
-		{%- capture _link -%}<a href="{{- _javamianshi.url | absolute_url -}}">read more</a>{%- endcapture -%}
-		{%- assign _content = _excerpt | append: _link -%}
+		<!--{%- capture _link -%}<a href="{{- _javamianshi.url | absolute_url -}}">read more</a>{%- endcapture -%}-->
+		<!--{%- assign _content = _excerpt | append: _link -%}-->
+		{%- assign _content = _excerpt -%}
 		{%- include section.html title=_title subtitle=_subtitle content=_content -%}
 	{%- endfor -%}
 </div>
