@@ -1,5 +1,5 @@
 ---
-title:  Collections 工具类和 Arrays 工具类常见方法
+title:  Collections工具类&Arrays工具类
 author: JOJO
 layout: post
 ---
