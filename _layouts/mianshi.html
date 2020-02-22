@@ -1,24 +1,24 @@
 ---
 layout: default
 ---
-{%- assign _mianshis = site.mianshis | sort: 'date' | reverse -%}
-{%- include header.html scrolly_nav=_mianshis -%}
+{%- assign _myblogs = site.myblogs | sort: 'date' | reverse -%}
+{%- include header.html scrolly_nav=_myblogs -%}
 <!-- Main -->
 <div id="main">
 	{%- if page.content != "" -%}
 		{%- include section.html title=page.title photo=page.cover-photo photo-alt=page.cover-photo-alt auto-header=page.auto-header content=page.content -%}
 	{%- endif -%}
 	<!-- Posts List -->
-	{%- for _mianshi in _mianshis -%}
+	{%- for _myblog in _myblogs -%}
 		{%- capture _title -%}
-			<a href="{{- _mianshi.url | absolute_url -}}">{{- _mianshi.title -}}</a>
+			<a href="{{- _myblog.url | absolute_url -}}">{{- _myblog.title -}}</a>
 		{%- endcapture -%}
 		{%- capture _subtitle -%}
-			{% if _mianshi.author -%}{{- _mianshi.author }} | {% endif %}
-			{{- _mianshi.date | date_to_long_string -}}
+			{% if _myblog.author -%}{{- _myblog.author }} | {% endif %}
+			{{- _myblog.date | date_to_long_string -}}
 		{%- endcapture -%}
-		{%- capture _excerpt -%}<p>{{- _mianshi.excerpt | strip_html | truncatewords: 100 -}}</p>{%- endcapture -%}
-		{%- capture _link -%}<a href="{{- _mianshi.url | absolute_url -}}">read more</a>{%- endcapture -%}
+		{%- capture _excerpt -%}<p>{{- _myblog.excerpt | strip_html | truncatewords: 100 -}}</p>{%- endcapture -%}
+		{%- capture _link -%}<a href="{{- _myblog.url | absolute_url -}}">read more</a>{%- endcapture -%}
 		{%- assign _content = _excerpt | append: _link -%}
 		{%- include section.html title=_title subtitle=_subtitle content=_content -%}
 	{%- endfor -%}
