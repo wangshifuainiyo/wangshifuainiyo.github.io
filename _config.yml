@@ -65,5 +65,7 @@ collections:
   sections:
   javamianshis:
     output: true
+  others:
+    output: true
 
 
