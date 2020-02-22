@@ -12,7 +12,6 @@ layout: default
 	{%- for _javamianshi in _javamianshis -%}
 		{%- capture _title -%}
 			<a href="{{- _javamianshi.url | replace:'-','/' | absolute_url -}}">{{- _javamianshi.title -}}</a>
-			<p>{{- _javamianshi.url -}}</p>
 		{%- endcapture -%}
 		{%- capture _subtitle -%}
 			{% if _javamianshi.author -%}{{- _javamianshi.author }} | {% endif %}

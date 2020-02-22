@@ -12,7 +12,6 @@ layout: default
 	{%- for _post in _posts -%}
 		{%- capture _title -%}
 			<a href="{{- _post.url | absolute_url -}}">{{- _post.title -}}</a>
-			<P>{{- _post.url -}}</P>
 		{%- endcapture -%}
 		{%- capture _subtitle -%}
 			{% if _post.author -%}{{- _post.author }} | {% endif %}
