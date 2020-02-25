@@ -53,7 +53,7 @@
 - [36. 常见关键字总结:static,final,this,super](#36-常见关键字总结staticfinalthissuper)
 - [37. Collections 工具类和 Arrays 工具类常见方法总结](#37-collections-工具类和-arrays-工具类常见方法总结)
 - [参考](#参考)
-- [公众号](#公众号)
+
 
 <!-- /TOC -->
 
@@ -93,7 +93,7 @@ Java虚拟机（JVM）是运行 Java 字节码的虚拟机。JVM有针对不同�
 
 **Java 程序从源代码到运行一般有下面3步：**
 
-![Java程序运行过程](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/Java%20%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B.png)
+![Java程序运行过程](../../media/pictures/Java/java程序运行过程.jpg)
 
 我们需要格外注意的是 .class->机器码 这一步。在这一步 JVM 类加载器首先加载字节码文件，然后通过解释器逐行解释执行，这种方式的执行速度会相对比较慢。而且，有些方法和代码块是经常需要被调用的(也就是所谓的热点代码)，所以后面引进了 JIT 编译器，而JIT 属于运行时编译。当 JIT 编译器完成第一次编译后，其会将字节码对应的机器码保存下来，下次可以直接使用。而我们知道，机器码的运行效率肯定是高于 Java 解释器的。这也解释了我们为什么经常会说 Java 是编译与解释共存的语言。
 
@@ -156,8 +156,7 @@ JRE 是 Java运行时环境。它是运行已编译 Java 程序所需的所有�
 3. 占内存大小 字符常量只占2个字节; 字符串常量占若干个字节 (**注意： char在Java中占两个字节**)
 
 > java编程思想第四版：2.2.2节
-![](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-9-15/86735519.jpg)
-
+![](../../media/pictures/Java/Java常量.jpg)
 ## 9. 构造器 Constructor 是否可被 override?
 
 Constructor 不能被 override（重写）,但是可以 overload（重载）,所以你可以看到一个类中有多个构造函数的情况。
@@ -170,8 +169,7 @@ Constructor 不能被 override（重写）,但是可以 overload（重载）,所
 
 下面是《Java核心技术》对重载这个概念的介绍：
 
-![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/bg/desktopjava核心技术-重载.jpg)　
-
+![](../../media/pictures/kafka/重载&重写.jpg)
 #### 重写
 
  重写是子类对父类的允许访问的方法的实现过程进行重新编写,发生在子类中，方法名、参数列表必须相同，返回值范围小于等于父类，抛出的异常范围小于等于父类，访问修饰符范围大于等于父类。另外，如果父类方法访问修饰符为 private 则子类就不能重写该方法。**也就是说方法提供的行为改变，而方法的外貌并没有改变。** 
@@ -382,12 +380,9 @@ hashCode() 的作用是获取哈希码，也称为散列码；它实际上是返
 
 Java 线程在运行的生命周期中的指定时刻只可能处于下面6种不同状态的其中一个状态（图源《Java 并发编程艺术》4.1.4节）。
 
-![Java线程的状态](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/19-1-29/Java%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81.png)
+![Java线程的状态](../../media/pictures/Java/Java线程的状态.png)
 
-线程在生命周期中并不是固定处于某一个状态而是随着代码的执行在不同状态之间切换。Java 线程状态变迁如下图所示（图源《Java 并发编程艺术》4.1.4节）：
-
-![Java线程状态变迁](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/19-1-29/Java%20%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E5%8F%98%E8%BF%81.png)
-
+![Java线程状态变迁](../../media/pictures/Java/Java%20线程状态变迁.png)
 
 
 由上图可以看出：
@@ -396,7 +391,7 @@ Java 线程在运行的生命周期中的指定时刻只可能处于下面6种�
 
 > 操作系统隐藏 Java虚拟机（JVM）中的 READY 和 RUNNING 状态，它只能看到 RUNNABLE 状态（图源：[HowToDoInJava](https://howtodoinjava.com/)：[Java Thread Life Cycle and Thread States](https://howtodoinjava.com/java/multi-threading/java-thread-life-cycle-and-thread-states/)），所以 Java 系统一般将这两个状态统称为 **RUNNABLE（运行中）** 状态 。
 
-![RUNNABLE-VS-RUNNING](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3/RUNNABLE-VS-RUNNING.png)
+![RUNNABLE-VS-RUNNING](../../media/pictures/Java/RUNNABLE-VS-RUNNING.png)
 
 当线程执行 `wait()`方法之后，线程进入 **WAITING（等待）**状态。进入等待状态的线程需要依靠其他线程的通知才能够返回到运行状态，而 **TIME_WAITING(超时等待)** 状态相当于在等待状态的基础上增加了超时限制，比如通过 `sleep（long millis）`方法或 `wait（long millis）`方法可以将 Java 线程置于 TIMED WAITING 状态。当超时时间到达后 Java 线程将会返回到 RUNNABLE 状态。当线程调用同步方法时，在没有获取到锁的情况下，线程将会进入到 **BLOCKED（阻塞）** 状态。线程在执行 Runnable 的` run() `方法之后将会进入到 **TERMINATED（终止）** 状态。
 
@@ -412,8 +407,7 @@ final关键字主要用在三个地方：变量、方法、类。
 
 ### Java异常类层次结构图
 
-![Java异常类层次结构图](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-2/Exception.png)
-
+![Java异常类层次结构图](../../media/pictures/Java/Exception.png)
 
 
 在 Java 中，所有的异常都有一个共同的祖先java.lang包中的 **Throwable类**。Throwable： 有两个重要的子类：**Exception（异常）** 和 **Error（错误）** ，二者都是 Java 异常处理的重要子类，各自都包含大量子类。
@@ -503,12 +497,11 @@ Java Io流共涉及40多个类，这些类看上去很杂乱，但实际上很�
 
 按操作方式分类结构图：
 
-![IO-操作方式分类](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/IO-操作方式分类.png)
-
+![IO-操作方式分类](../../media/pictures/Java/IO-操作方式分类.png)
 
 按操作对象分类结构图：
 
-![IO-操作对象分类](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/IO-操作对象分类.png)
+![IO-操作对象分类](../../media/pictures/Java/IO-操作对象分类.png)
 
 ### 既然有了字节流,为什么还要有字符流?
 
@@ -524,7 +517,7 @@ Java Io流共涉及40多个类，这些类看上去很杂乱，但实际上很�
 
 ## 36. 常见关键字总结:static,final,this,super
 
-详见笔主的这篇文章: <https://gitee.com/SnailClimb/JavaGuide/blob/master/docs/java/Basis/final、static、this、super.md>
+详见笔主的这篇文章: <https://wangshifuainiyo.github.io/#/docs/java/basis/final%E3%80%81static%E3%80%81this%E3%80%81super>
 
 ## 37. Collections 工具类和 Arrays 工具类常见方法总结
 
@@ -535,7 +528,6 @@ Java Io流共涉及40多个类，这些类看上去很杂乱，但实际上很�
 1. **浅拷贝**：对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，此为浅拷贝。
 2. **深拷贝**：对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容，此为深拷贝。
 
-![deep and shallow copy](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/java-deep-and-shallow-copy.jpg)
 
 ## 参考
 
