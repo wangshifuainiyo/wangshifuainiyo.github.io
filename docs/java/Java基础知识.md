@@ -521,8 +521,7 @@ Java Io流共涉及40多个类，这些类看上去很杂乱，但实际上很�
 
 ## 37. Collections 工具类和 Arrays 工具类常见方法总结
 
-详见笔主的这篇文章: <https://gitee.com/SnailClimb/JavaGuide/blob/master/docs/java/Basis/Arrays,CollectionsCommonMethods.md>
-
+详见笔主的这篇文章: <https://wangshifuainiyo.github.io/#/docs/java/Basis/Arrays,CollectionsCommonMethods>
 ### 38. 深拷贝 vs 浅拷贝
 
 1. **浅拷贝**：对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，此为浅拷贝。
