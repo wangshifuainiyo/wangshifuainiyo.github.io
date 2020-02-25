@@ -21,8 +21,10 @@
 
 **重要知识点详解：**
 
-- [Java 常见关键字总结：final、static、this、super!](docs/java/basis/final、static、this、super.md)
-- [Java int 和 integer 区别!](docs/java/basis/int&integer.md)
+- [Java 常见关键字总结：final、static、this、super!](docs/java/Basis/final、static、this、super.md)
+- [Java int 和 integer 区别!](docs/java/Basis/int&integer.md)
+- [Collections 工具类和 Arrays 工具类常见方法!](docs/java/Basis/Arrays,CollectionsCommonMethods.md)
+
 
 ### 容器
 
