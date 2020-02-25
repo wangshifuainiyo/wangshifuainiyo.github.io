@@ -60,13 +60,10 @@
 <script>
     var preview = $(".demo-theme-preview a");
     var themes = $("[rel='stylesheet']");
-
+    console.log(themes)
     preview.click(function (e) {
-
-        console.log(preview.attr('data-theme'))
-        console.log(e)
         var title = e.target.attributes[0].value
-        console.log(title)
+
         themes.forEach(function (theme) {
             theme.disabled = theme.title !== title
         });
