@@ -4,7 +4,7 @@
 - [Java](#java)
     - [基础](#基础)
     - [容器](#容器)
-    - [并发](#并发)
+    
     - [JVM](#jvm)
     - [I/O](#io)
     - [Java 8](#java-8)
@@ -25,14 +25,6 @@
 * [LinkedList 源码学习](java/collection/LinkedList.md)   
 * [HashMap(JDK1.8)源码学习](java/collection/HashMap.md)  
 
-### 并发
-
-* [Java 并发基础常见面试题总结](java/Multithread/JavaConcurrencyBasicsCommonInterviewQuestionsSummary.md)
-* [Java 并发进阶常见面试题总结](java/Multithread/JavaConcurrencyAdvancedCommonInterviewQuestions.md)
-* [并发容器总结](java/Multithread/并发容器总结.md)
-* [乐观锁与悲观锁](essential-content-for-interview/面试必备之乐观锁与悲观锁.md)
-* [JUC 中的 Atomic 原子类总结](java/Multithread/Atomic.md)
-* [AQS 原理以及 AQS 同步组件总结](java/Multithread/AQS.md)
 
 ### JVM
 * [一 Java内存区域](java/jvm/Java内存区域.md)
