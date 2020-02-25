@@ -64,7 +64,7 @@
     preview.click(function (e) {
 
         console.log(preview.attr('data-theme'))
-
+        console.log(e)
         var title = e.target.attributes('data-theme')
         console.log(title)
         themes.forEach(function (theme) {
