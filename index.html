@@ -60,15 +60,15 @@
 <script>
     var preview = $(".demo-theme-preview a");
     var themes = $("[rel='stylesheet']");
-    console.log(themes)
-    preview.onclick = function (e) {
+    console.log(preview)
+    preview.click(function (e) {
 
         var title = e.target.getAttribute('data-theme')
 
         themes.forEach(function (theme) {
             theme.disabled = theme.title !== title
         });
-    };
+    });
 </script>
 
 <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
