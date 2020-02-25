@@ -22,7 +22,6 @@
 **重要知识点详解：**
 
 - [Java 常见关键字总结：final、static、this、super!](docs/java/basis/final、static、this、super.md)
-
 - [Java int 和 integer 区别!](docs/java/basis/int&integer.md)
 
 ### 容器
@@ -61,5 +60,4 @@
 ## 杂七杂八
 
 * [Java 加密](docs/others/Java加密.md)  
-
 * [肖梦迪是混蛋](docs/others/肖梦迪是混蛋.md)
