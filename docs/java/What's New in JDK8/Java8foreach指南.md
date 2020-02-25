@@ -1,4 +1,3 @@
-> 本文由 JavaGuide 翻译，原文地址：https://www.baeldung.com/foreach-java
 
 ## 1 概述
 
