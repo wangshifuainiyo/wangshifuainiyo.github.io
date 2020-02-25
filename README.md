@@ -42,11 +42,6 @@
 
 * **[一 Java内存区域](docs/java/jvm/Java内存区域.md)**
 * **[二 JVM垃圾回收](docs/java/jvm/JVM垃圾回收.md)**
-* [三 JDK 监控和故障处理工具](docs/java/jvm/JDK监控和故障处理工具总结.md)
-* [四 类文件结构](docs/java/jvm/类文件结构.md)
-* **[五 类加载过程](docs/java/jvm/类加载过程.md)**
-* [六 类加载器](docs/java/jvm/类加载器.md)
-* [七 JVM 配置常用参数和常用 GC 调优策略](docs/java/jvm/GC调优参数.md)
 * **[【加餐】大白话带你认识JVM](docs/java/jvm/[加餐]大白话带你认识JVM.md)**
 
 ### I/O
@@ -63,3 +58,5 @@
 
 * [Java 加密](docs/others/Java加密.md)  
 * [肖梦迪是混蛋](docs/others/肖梦迪是混蛋.md)
+
+
