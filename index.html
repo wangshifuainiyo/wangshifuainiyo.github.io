@@ -62,6 +62,7 @@
     var themes = $("[rel='stylesheet']");
 
     preview.onclick = function (e) {
+        console.log(1)
         var title = e.target.getAttribute('data-theme')
 
         themes.forEach(function (theme) {
