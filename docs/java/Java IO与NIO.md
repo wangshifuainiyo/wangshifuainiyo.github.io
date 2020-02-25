@@ -27,12 +27,12 @@
 
 **（1） 按操作方式分类结构图：**
 
-![IO-操作方式分类](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/IO-操作方式分类.png)
+![IO-操作方式分类](../../media/pictures/Java/IO-操作方式分类.png)
 
 
 **（2）按操作对象分类结构图**
 
-![IO-操作对象分类](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/IO-操作对象分类.png)
+![IO-操作对象分类](../../media/pictures/Java/IO-操作对象分类.png)
 
 ### [二　java IO体系的学习总结](https://blog.csdn.net/nightcurtis/article/details/51324105) 
 1. **IO流的分类：**
