@@ -60,4 +60,6 @@
 
 ## 杂七杂八
 
-* [Java 加密](docs/other/Java加密.md)  
+* [Java 加密](docs/others/Java加密.md)  
+
+* [肖梦迪是混蛋](docs/others/肖梦迪是混蛋.md)
