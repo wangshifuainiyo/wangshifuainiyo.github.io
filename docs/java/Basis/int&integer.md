@@ -1,8 +1,3 @@
----
-title:  int 和 integer 区别
-author: JOJO
-layout: post
----
 
 ## 1 int与Integer的基本使用对比
 * Integer是int的包装类；int是基本数据类型； 
