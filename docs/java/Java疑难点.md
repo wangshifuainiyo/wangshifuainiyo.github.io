@@ -132,7 +132,7 @@ System.out.println(n);// 1.255
 
 注意：我们在使用BigDecimal时，为了防止精度丢失，推荐使用它的 **BigDecimal(String)** 构造方法来创建对象。《阿里巴巴Java开发手册》对这部分内容也有提到如下图所示。
 
-![《阿里巴巴Java开发手册》对这部分BigDecimal的描述](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019/7/BigDecimal.png)
+![《阿里巴巴Java开发手册》对这部分BigDecimal的描述](../../media/pictures/Java/BigDecimal.png)
 
 ### 1.3.5. 总结
 
@@ -188,7 +188,7 @@ public static <T> List<T> asList(T... a) {
 
 `Arrays.asList()`将数组转换为集合后,底层其实还是数组，《阿里巴巴Java 开发手册》对于这个方法有如下描述：
 
-![阿里巴巴Java开发手-Arrays.asList()方法](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/阿里巴巴Java开发手-Arrays.asList()方法.png)
+![阿里巴巴Java开发手-Arrays.asList()方法](../../media/pictures/Java/阿里巴巴Java开发手-Arrays.asList()方法.png)
 
 ### 2.1.3. 使用时的注意事项总结
 
@@ -367,7 +367,6 @@ s=list.toArray(new String[0]);//没有指定类型的话会报错
 
 `java.util`包下面的所有的集合类都是fail-fast的，而`java.util.concurrent`包下面的所有的类都是fail-safe的。
 
-![不要在 foreach 循环里进行元素的 remove/add 操作](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019/7/foreach-remove:add.png)
-
+![不要在 foreach 循环里进行元素的 remove/add 操作](../../media/pictures/Java/foreach-remove_add.png)
 
 
