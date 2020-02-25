@@ -1,8 +1,3 @@
----
-title:  java 常见加密方法
-author: JOJO
-layout: post
----
 
 ## java 常见加密方法
 
