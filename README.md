@@ -7,6 +7,7 @@
     - [JVM](#jvm)
     - [I/O](#io)
     - [编程规范](#编程规范)
+- [杂七杂八](#杂七杂八)
     
 ## Java
 
@@ -21,6 +22,8 @@
 **重要知识点详解：**
 
 - [Java 常见关键字总结：final、static、this、super!](docs/java/basis/final、static、this、super.md)
+
+- [Java int 和 integer 区别!](docs/java/basis/int&integer.md)
 
 ### 容器
 
@@ -55,3 +58,6 @@
 
 * [Java 编程规范以及优雅 Java 代码实践总结](docs/java/Java编程规范.md)
 
+## 杂七杂八
+
+* [Java 加密](docs/other/Java加密.md)  
