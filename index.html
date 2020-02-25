@@ -56,9 +56,10 @@
 
     }
 </script>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
 <script>
-    var preview = Docsify.dom.find('.demo-theme-preview');
-    var themes = Docsify.dom.findAll('[rel="stylesheet"]');
+    var preview = $(".demo-theme-preview");
+    var themes = $("[rel='stylesheet']");
 
     preview.onclick = function (e) {
         var title = e.target.getAttribute('data-theme')
@@ -68,6 +69,7 @@
         });
     };
 </script>
+
 <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
 <!--Java代码高亮-->
 <script src="//unpkg.com/prismjs/components/prism-java.js"></script>
