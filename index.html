@@ -60,9 +60,9 @@
 <script>
     var preview = $(".demo-theme-preview");
     var themes = $("[rel='stylesheet']");
-
+    console.log(preview)
     preview.onclick = function (e) {
-        console.log(1)
+
         var title = e.target.getAttribute('data-theme')
 
         themes.forEach(function (theme) {
