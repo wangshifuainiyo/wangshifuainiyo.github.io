@@ -520,3 +520,11 @@ public <T extends Number> T showKeyName(Generic<T> container){
     return test;
 }
 ```
+
+**1.上界<? extends T>不能往里存，只能往外取**
+
+>不要太疑惑，其实很好理解，因为编译器只知道容器里的是Fruit或者Fruit的子类，但不知道它具体是什么类型，所以存的时候，无法判断是否要存入的数据的类型与容器种的类型一致，所以会拒绝set操作。
+
+**2.下界<? super T>往外取只能赋值给Object变量，不影响往里存**
+>因为编译器只知道它是Fruit或者它的父类，这样实际上是放松了类型限制，Fruit的父类一直到Object类型的对象都可以往里存，但是取的时候，就只能当成Object对象使用了。    
+所以如果需要经常往外读，则使用<? extends T>，如果需要经常往外取，则使用<? super T>。
