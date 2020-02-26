@@ -7,6 +7,11 @@
   - [4.3. 泛型通配符](#43-%e6%b3%9b%e5%9e%8b%e9%80%9a%e9%85%8d%e7%ac%a6)
   - [4.4. 泛型方法](#44-%e6%b3%9b%e5%9e%8b%e6%96%b9%e6%b3%95)
     - [4.4.1. 泛型方法的基本用法](#441-%e6%b3%9b%e5%9e%8b%e6%96%b9%e6%b3%95%e7%9a%84%e5%9f%ba%e6%9c%ac%e7%94%a8%e6%b3%95)
+    - [4.4.2. 类中的泛型方法](#442-%e7%b1%bb%e4%b8%ad%e7%9a%84%e6%b3%9b%e5%9e%8b%e6%96%b9%e6%b3%95)
+    - [4.4.3. 泛型方法与可变参数](#443-%e6%b3%9b%e5%9e%8b%e6%96%b9%e6%b3%95%e4%b8%8e%e5%8f%af%e5%8f%98%e5%8f%82%e6%95%b0)
+    - [4.4.4. 静态方法与泛型](#444-%e9%9d%99%e6%80%81%e6%96%b9%e6%b3%95%e4%b8%8e%e6%b3%9b%e5%9e%8b)
+    - [4.4.5. 泛型方法总结](#445-%e6%b3%9b%e5%9e%8b%e6%96%b9%e6%b3%95%e6%80%bb%e7%bb%93)
+  - [4.5. 泛型上下边界](#45-%e6%b3%9b%e5%9e%8b%e4%b8%8a%e4%b8%8b%e8%be%b9%e7%95%8c)
 
 ## 1. 概述
 泛型在java中有很重要的地位，在面向对象编程及各种设计模式中有非常广泛的应用。
@@ -275,5 +280,257 @@ public <T> T genericMethod(Class<T> tClass)throws InstantiationException ,
 
 #### 4.4.1. 泛型方法的基本用法
 
+一个例子:
 
-                                                                                                                                                                                                                                                                                                   
+``` java
+public class GenericTest {
+   //这个类是个泛型类，在上面已经介绍过
+   public class Generic<T>{     
+        private T key;
+
+        public Generic(T key) {
+            this.key = key;
+        }
+
+        //我想说的其实是这个，虽然在方法中使用了泛型，但是这并不是一个泛型方法。
+        //这只是类中一个普通的成员方法，只不过他的返回值是在声明泛型类已经声明过的泛型。
+        //所以在这个方法中才可以继续使用 T 这个泛型。
+        public T getKey(){
+            return key;
+        }
+
+        /**
+         * 这个方法显然是有问题的，在编译器会给我们提示这样的错误信息"cannot reslove symbol E"
+         * 因为在类的声明中并未声明泛型E，所以在使用E做形参和返回值类型时，编译器会无法识别。
+        public E setKey(E key){
+             this.key = keu
+        }
+        */
+    }
+
+    /** 
+     * 这才是一个真正的泛型方法。
+     * 首先在public与返回值之间的<T>必不可少，这表明这是一个泛型方法，并且声明了一个泛型T
+     * 这个T可以出现在这个泛型方法的任意位置.
+     * 泛型的数量也可以为任意多个 
+     *    如：public <T,K> K showKeyName(Generic<T> container){
+     *        ...
+     *        }
+     */
+    public <T> T showKeyName(Generic<T> container){
+        System.out.println("container key :" + container.getKey());
+        //当然这个例子举的不太合适，只是为了说明泛型方法的特性。
+        T test = container.getKey();
+        return test;
+    }
+
+    //这也不是一个泛型方法，这就是一个普通的方法，只是使用了Generic<Number>这个泛型类做形参而已。
+    public void showKeyValue1(Generic<Number> obj){
+        Log.d("泛型测试","key value is " + obj.getKey());
+    }
+
+    //这也不是一个泛型方法，这也是一个普通的方法，只不过使用了泛型通配符?
+    //同时这也印证了泛型通配符章节所描述的，?是一种类型实参，可以看做为Number等所有类的父类
+    public void showKeyValue2(Generic<?> obj){
+        Log.d("泛型测试","key value is " + obj.getKey());
+    }
+
+     /**
+     * 这个方法是有问题的，编译器会为我们提示错误信息："UnKnown class 'E' "
+     * 虽然我们声明了<T>,也表明了这是一个可以处理泛型的类型的泛型方法。
+     * 但是只声明了泛型类型T，并未声明泛型类型E，因此编译器并不知道该如何处理E这个类型。
+    public <T> T showKeyName(Generic<E> container){
+        ...
+    }  
+    */
+
+    /**
+     * 这个方法也是有问题的，编译器会为我们提示错误信息："UnKnown class 'T' "
+     * 对于编译器来说T这个类型并未项目中声明过，因此编译也不知道该如何编译这个类。
+     * 所以这也不是一个正确的泛型方法声明。
+    public void showkey(T genericObj){
+
+    }
+    */
+
+    public static void main(String[] args) {
+
+
+    }
+}
+```
+
+#### 4.4.2. 类中的泛型方法
+
+一个例子:
+```java
+public class GenericFruit {
+    class Fruit{
+        @Override
+        public String toString() {
+            return "fruit";
+        }
+    }
+
+    class Apple extends Fruit{
+        @Override
+        public String toString() {
+            return "apple";
+        }
+    }
+
+    class Person{
+        @Override
+        public String toString() {
+            return "Person";
+        }
+    }
+
+    class GenerateTest<T>{
+        public void show_1(T t){
+            System.out.println(t.toString());
+        }
+
+        //在泛型类中声明了一个泛型方法，使用泛型E，这种泛型E可以为任意类型。可以类型与T相同，也可以不同。
+        //由于泛型方法在声明的时候会声明泛型<E>，因此即使在泛型类中并未声明泛型，编译器也能够正确识别泛型方法中识别的泛型。
+        public <E> void show_3(E t){
+            System.out.println(t.toString());
+        }
+
+        //在泛型类中声明了一个泛型方法，使用泛型T，注意这个T是一种全新的类型，可以与泛型类中声明的T不是同一种类型。
+        public <T> void show_2(T t){
+            System.out.println(t.toString());
+        }
+    }
+
+    public static void main(String[] args) {
+        Apple apple = new Apple();
+        Person person = new Person();
+
+        GenerateTest<Fruit> generateTest = new GenerateTest<Fruit>();
+        //apple是Fruit的子类，所以这里可以
+        generateTest.show_1(apple);
+        //编译器会报错，因为泛型类型实参指定的是Fruit，而传入的实参类是Person
+        //generateTest.show_1(person);
+
+        //使用这两个方法都可以成功
+        generateTest.show_2(apple);
+        generateTest.show_2(person);
+
+        //使用这两个方法也都可以成功
+        generateTest.show_3(apple);
+        generateTest.show_3(person);
+    }
+}
+```
+
+#### 4.4.3. 泛型方法与可变参数
+
+泛型方法和可变参数的例子：
+
+```java
+public <T> void printMsg( T... args){
+    for(T t : args){
+        Log.d("泛型测试","t is " + t);
+    }
+}
+printMsg("111",222,"aaaa","2323.4",55.55);
+```
+
+#### 4.4.4. 静态方法与泛型
+
+静态方法有一种情况需要注意一下，那就是在类中的静态方法使用泛型：静态方法无法访问类上定义的泛型；如果静态方法操作的引用数据类型不确定的时候，必须要将泛型定义在方法上。
+
+即：如果静态方法要使用泛型的话，必须将静态方法也定义成泛型方法 。
+
+```java
+public class StaticGenerator<T> {
+    ....
+    ....
+    /**
+     * 如果在类中定义使用泛型的静态方法，需要添加额外的泛型声明（将这个方法定义成泛型方法）
+     * 即使静态方法要使用泛型类中已经声明过的泛型也不可以。
+     * 如：public static void show(T t){..},此时编译器会提示错误信息：
+          "StaticGenerator cannot be refrenced from static context"
+     */
+    public static <T> void show(T t){
+
+    }
+}
+```
+
+#### 4.4.5. 泛型方法总结
+
+>泛型方法能使方法独立于类而产生变化，以下是一个基本的指导原则：
+>无论何时，如果你能做到，你就该尽量使用泛型方法。也就是说，如果使用泛型方法将整个类泛型化，
+>那么就应该使用泛型方法。另外对于一个static的方法而已，无法访问泛型类型的参数。
+>所以如果static方法要使用泛型能力，就必须使其成为泛型方法。
+
+### 4.5. 泛型上下边界
+
+在使用泛型的时候，我们还可以为传入的泛型类型实参进行上下边界的限制，如：类型实参只准传入某种类型的父类或某种类型的子类。  
+为泛型添加上边界，即传入的类型实参必须是指定类型的子类型
+
+```java
+public void showKeyValue1(Generic<? extends Number> obj){
+    Log.d("泛型测试","key value is " + obj.getKey());
+}
+```
+
+```java
+Generic<String> generic1 = new Generic<String>("11111");
+Generic<Integer> generic2 = new Generic<Integer>(2222);
+Generic<Float> generic3 = new Generic<Float>(2.4f);
+Generic<Double> generic4 = new Generic<Double>(2.56);
+
+//这一行代码编译器会提示错误，因为String类型并不是Number类型的子类
+//showKeyValue1(generic1);
+
+showKeyValue1(generic2);
+showKeyValue1(generic3);
+showKeyValue1(generic4);
+```
+如果我们把泛型类的定义也改一下:
+
+```java
+public class Generic<T extends Number>{
+    private T key;
+
+    public Generic(T key) {
+        this.key = key;
+    }
+
+    public T getKey(){
+        return key;
+    }
+}
+
+//这一行代码也会报错，因为String不是Number的子类
+Generic<String> generic1 = new Generic<String>("11111");
+```
+
+再来一个泛型方法的例子：
+
+```java
+//在泛型方法中添加上下边界限制的时候，必须在权限声明与返回值之间的<T>上添加上下边界，即在泛型声明的时候添加
+//public <T> T showKeyName(Generic<T extends Number> container)，编译器会报错："Unexpected bound"
+public <T extends Number> T showKeyName(Generic<T> container){
+    System.out.println("container key :" + container.getKey());
+    T test = container.getKey();
+    return test;
+}
+```- [1. 概述](#1-%e6%a6%82%e8%bf%b0)
+- [1. 概述](#1-%e6%a6%82%e8%bf%b0)
+- [2. 一个例子](#2-%e4%b8%80%e4%b8%aa%e4%be%8b%e5%ad%90)
+- [3. 特性](#3-%e7%89%b9%e6%80%a7)
+- [4. 泛型的使用](#4-%e6%b3%9b%e5%9e%8b%e7%9a%84%e4%bd%bf%e7%94%a8)
+  - [4.1. 泛型类](#41-%e6%b3%9b%e5%9e%8b%e7%b1%bb)
+  - [4.2. 泛型接口](#42-%e6%b3%9b%e5%9e%8b%e6%8e%a5%e5%8f%a3)
+  - [4.3. 泛型通配符](#43-%e6%b3%9b%e5%9e%8b%e9%80%9a%e9%85%8d%e7%ac%a6)
+  - [4.4. 泛型方法](#44-%e6%b3%9b%e5%9e%8b%e6%96%b9%e6%b3%95)
+    - [4.4.1. 泛型方法的基本用法](#441-%e6%b3%9b%e5%9e%8b%e6%96%b9%e6%b3%95%e7%9a%84%e5%9f%ba%e6%9c%ac%e7%94%a8%e6%b3%95)
+    - [4.4.2. 类中的泛型方法](#442-%e7%b1%bb%e4%b8%ad%e7%9a%84%e6%b3%9b%e5%9e%8b%e6%96%b9%e6%b3%95)
+    - [4.4.3. 泛型方法与可变参数](#443-%e6%b3%9b%e5%9e%8b%e6%96%b9%e6%b3%95%e4%b8%8e%e5%8f%af%e5%8f%98%e5%8f%82%e6%95%b0)
+    - [4.4.4. 静态方法与泛型](#444-%e9%9d%99%e6%80%81%e6%96%b9%e6%b3%95%e4%b8%8e%e6%b3%9b%e5%9e%8b)
+    - [4.4.5. 泛型方法总结](#445-%e6%b3%9b%e5%9e%8b%e6%96%b9%e6%b3%95%e6%80%bb%e7%bb%93)
+  - [4.5. 泛型上下边界](#45-%e6%b3%9b%e5%9e%8b%e4%b8%8a%e4%b8%8b%e8%be%b9%e7%95%8c)
