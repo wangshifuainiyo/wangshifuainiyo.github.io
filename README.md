@@ -1,15 +1,14 @@
-
 ## 目录
 
 - [Java](#java)
-    - [基础](#基础)
-    - [容器](#容器)
-    - [JVM](#jvm)
-    - [I/O](#io)
-    - [编程规范](#编程规范)
-    - [范型](#范型)
+  - [基础](#基础)
+  - [容器](#容器)
+  - [JVM](#jvm)
+  - [I/O](#io)
+  - [编程规范](#编程规范)
+  - [范型](#范型)
 - [杂七杂八](#杂七杂八)
-    
+
 ## Java
 
 ### 基础
@@ -35,9 +34,9 @@
 
 **源码学习：**
 
-* [ArrayList 源码学习](docs/java/collection/ArrayList.md)  
-* [LinkedList 源码学习](docs/java/collection/LinkedList.md)   
-* [HashMap(JDK1.8)源码学习](docs/java/collection/HashMap.md)  
+* [ArrayList 源码学习](docs/java/collection/ArrayList.md)
+* [LinkedList 源码学习](docs/java/collection/LinkedList.md)
+* [HashMap(JDK1.8)源码学习](docs/java/collection/HashMap.md)
 
 ### JVM
 
@@ -47,7 +46,7 @@
 
 ### I/O
 
-* [BIO,NIO,AIO 总结 ](docs/java/BIO-NIO-AIO.md)
+* [BIO,NIO,AIO 总结](docs/java/BIO-NIO-AIO.md)
 * [Java IO 与 NIO系列文章](docs/java/Java%20IO与NIO.md)
 
 
@@ -62,7 +61,7 @@
 
 ## 杂七杂八
 
-* [Java 加密](docs/others/Java加密.md)  
+* [Java 加密](docs/others/Java加密.md)
 * [肖梦迪是混蛋](docs/others/肖梦迪是混蛋.md)
 
 
