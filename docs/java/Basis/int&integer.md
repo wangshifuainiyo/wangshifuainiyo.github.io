@@ -1,3 +1,11 @@
+- [1 int与Integer的基本使用对比](#1-int%e4%b8%8einteger%e7%9a%84%e5%9f%ba%e6%9c%ac%e4%bd%bf%e7%94%a8%e5%af%b9%e6%af%94)
+- [2 int与Integer的深入对比](#2-int%e4%b8%8einteger%e7%9a%84%e6%b7%b1%e5%85%a5%e5%af%b9%e6%af%94)
+- [Java两种数据类型](#java%e4%b8%a4%e7%a7%8d%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b)
+    - [Java两种数据类型分类](#java%e4%b8%a4%e7%a7%8d%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b%e5%88%86%e7%b1%bb)
+    - [Java为每个原始类型提供了封装类](#java%e4%b8%ba%e6%af%8f%e4%b8%aa%e5%8e%9f%e5%a7%8b%e7%b1%bb%e5%9e%8b%e6%8f%90%e4%be%9b%e4%ba%86%e5%b0%81%e8%a3%85%e7%b1%bb)
+- [基本解析](#%e5%9f%ba%e6%9c%ac%e8%a7%a3%e6%9e%90)
+    - [自动装箱：将基本数据类型重新转化为对象](#%e8%87%aa%e5%8a%a8%e8%a3%85%e7%ae%b1%e5%b0%86%e5%9f%ba%e6%9c%ac%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b%e9%87%8d%e6%96%b0%e8%bd%ac%e5%8c%96%e4%b8%ba%e5%af%b9%e8%b1%a1)
+    - [自动拆箱：将对象重新转化为基本数据类型](#%e8%87%aa%e5%8a%a8%e6%8b%86%e7%ae%b1%e5%b0%86%e5%af%b9%e8%b1%a1%e9%87%8d%e6%96%b0%e8%bd%ac%e5%8c%96%e4%b8%ba%e5%9f%ba%e6%9c%ac%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b)
 
 ## 1 int与Integer的基本使用对比
 * Integer是int的包装类；int是基本数据类型； 

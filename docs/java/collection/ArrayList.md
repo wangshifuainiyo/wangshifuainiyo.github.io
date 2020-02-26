@@ -1,14 +1,12 @@
 <!-- MarkdownTOC -->
-
-- [ArrayList简介](#arraylist简介)
-- [ArrayList核心源码](#arraylist核心源码)
-- [ArrayList源码分析](#arraylist源码分析)
-    - [System.arraycopy\(\)和Arrays.copyOf\(\)方法](#systemarraycopy和arrayscopyof方法)
-        - [两者联系与区别](#两者联系与区别)
-    - [ArrayList核心扩容技术](#arraylist核心扩容技术)
-    - [内部类](#内部类)
-- [ArrayList经典Demo](#arraylist经典demo)
-
+- [ArrayList简介](#arraylist%e7%ae%80%e4%bb%8b)
+- [ArrayList核心源码](#arraylist%e6%a0%b8%e5%bf%83%e6%ba%90%e7%a0%81)
+- [<font face="楷体" id="1" id="5">ArrayList源码分析</font>](#font-face%22%e6%a5%b7%e4%bd%93%22-id%221%22-id%225%22arraylist%e6%ba%90%e7%a0%81%e5%88%86%e6%9e%90font)
+  - [System.arraycopy()和Arrays.copyOf()方法](#systemarraycopy%e5%92%8carrayscopyof%e6%96%b9%e6%b3%95)
+    - [两者联系与区别](#%e4%b8%a4%e8%80%85%e8%81%94%e7%b3%bb%e4%b8%8e%e5%8c%ba%e5%88%ab)
+  - [ArrayList 核心扩容技术](#arraylist-%e6%a0%b8%e5%bf%83%e6%89%a9%e5%ae%b9%e6%8a%80%e6%9c%af)
+  - [内部类](#%e5%86%85%e9%83%a8%e7%b1%bb)
+- [<font face="楷体" id="6"> ArrayList经典Demo</font>](#font-face%22%e6%a5%b7%e4%bd%93%22-id%226%22-arraylist%e7%bb%8f%e5%85%b8demofont)
 <!-- /MarkdownTOC -->
 
 

@@ -1,25 +1,23 @@
 
 <!-- MarkdownTOC -->
-
-- [BIO,NIO,AIO 总结](#bionioaio-总结)
-  - [1. BIO \(Blocking I/O\)](#1-bio-blocking-io)
-    - [1.1 传统 BIO](#11-传统-bio)
-    - [1.2 伪异步 IO](#12-伪异步-io)
-    - [1.3 代码示例](#13-代码示例)
-    - [1.4 总结](#14-总结)
-  - [2. NIO \(New I/O\)](#2-nio-new-io)
-    - [2.1 NIO 简介](#21-nio-简介)
-    - [2.2 NIO的特性/NIO与IO区别](#22-nio的特性nio与io区别)
-      - [1)Non-blocking IO（非阻塞IO）](#1non-blocking-io（非阻塞io）)
-      - [2)Buffer\(缓冲区\)](#2buffer缓冲区)
-      - [3)Channel \(通道\)](#3channel-通道)
-      - [4)Selectors\(选择器\)](#4selectors选择器)
-    - [2.3  NIO 读数据和写数据方式](#23-nio-读数据和写数据方式)
-    - [2.4 NIO核心组件简单介绍](#24-nio核心组件简单介绍)
-    - [2.5 代码示例](#25-代码示例)
-  - [3. AIO  \(Asynchronous I/O\)](#3-aio-asynchronous-io)
-  - [参考](#参考)
-
+- [BIO,NIO,AIO 总结](#bionioaio-%e6%80%bb%e7%bb%93)
+  - [1. BIO (Blocking I/O)](#1-bio-blocking-io)
+    - [1.1 传统 BIO](#11-%e4%bc%a0%e7%bb%9f-bio)
+    - [1.2 伪异步 IO](#12-%e4%bc%aa%e5%bc%82%e6%ad%a5-io)
+    - [1.3 代码示例](#13-%e4%bb%a3%e7%a0%81%e7%a4%ba%e4%be%8b)
+    - [1.4 总结](#14-%e6%80%bb%e7%bb%93)
+  - [2. NIO (New I/O)](#2-nio-new-io)
+    - [2.1 NIO 简介](#21-nio-%e7%ae%80%e4%bb%8b)
+    - [2.2 NIO的特性/NIO与IO区别](#22-nio%e7%9a%84%e7%89%b9%e6%80%a7nio%e4%b8%8eio%e5%8c%ba%e5%88%ab)
+      - [1)Non-blocking IO（非阻塞IO）](#1non-blocking-io%e9%9d%9e%e9%98%bb%e5%a1%9eio)
+      - [2)Buffer(缓冲区)](#2buffer%e7%bc%93%e5%86%b2%e5%8c%ba)
+      - [3)Channel (通道)](#3channel-%e9%80%9a%e9%81%93)
+      - [4)Selector (选择器)](#4selector-%e9%80%89%e6%8b%a9%e5%99%a8)
+    - [2.3  NIO 读数据和写数据方式](#23-nio-%e8%af%bb%e6%95%b0%e6%8d%ae%e5%92%8c%e5%86%99%e6%95%b0%e6%8d%ae%e6%96%b9%e5%bc%8f)
+    - [2.4 NIO核心组件简单介绍](#24-nio%e6%a0%b8%e5%bf%83%e7%bb%84%e4%bb%b6%e7%ae%80%e5%8d%95%e4%bb%8b%e7%bb%8d)
+    - [2.5 代码示例](#25-%e4%bb%a3%e7%a0%81%e7%a4%ba%e4%be%8b)
+    - [3. AIO (Asynchronous I/O)](#3-aio-asynchronous-io)
+  - [参考](#%e5%8f%82%e8%80%83)
 <!-- /MarkdownTOC -->
 
 
