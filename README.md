@@ -7,7 +7,7 @@
     - [JVM](#jvm)
     - [I/O](#io)
     - [编程规范](#编程规范)
-    - [Java 范型](#java范型)
+    - [范型](#范型)
 - [杂七杂八](#杂七杂八)
     
 ## Java
@@ -55,7 +55,7 @@
 
 * [Java 编程规范以及优雅 Java 代码实践总结](docs/java/Java编程规范.md)
 
-### Java范型
+### 范型
 
 * [Java 范型详解](docs/java/Java范型.md)
 
