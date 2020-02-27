@@ -64,8 +64,5 @@
 * [Java 加密](docs/others/Java加密.md)
 * [肖梦迪是混蛋](docs/others/肖梦迪是混蛋.md)
 
-<script>
-  console.log(2333)
-</script>
 
 
