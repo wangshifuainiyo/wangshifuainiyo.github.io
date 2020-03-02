@@ -1,21 +1,23 @@
-- [1. 基础](#1-%e5%9f%ba%e7%a1%80)
-  - [1.1. 正确使用 equals 方法](#11-%e6%ad%a3%e7%a1%ae%e4%bd%bf%e7%94%a8-equals-%e6%96%b9%e6%b3%95)
-  - [1.2. 整型包装类值的比较](#12-%e6%95%b4%e5%9e%8b%e5%8c%85%e8%a3%85%e7%b1%bb%e5%80%bc%e7%9a%84%e6%af%94%e8%be%83)
-  - [1.3. BigDecimal](#13-bigdecimal)
-    - [1.3.1. BigDecimal 的用处](#131-bigdecimal-%e7%9a%84%e7%94%a8%e5%a4%84)
-    - [1.3.2. BigDecimal 的大小比较](#132-bigdecimal-%e7%9a%84%e5%a4%a7%e5%b0%8f%e6%af%94%e8%be%83)
-    - [1.3.3. BigDecimal 保留几位小数](#133-bigdecimal-%e4%bf%9d%e7%95%99%e5%87%a0%e4%bd%8d%e5%b0%8f%e6%95%b0)
-    - [1.3.4. BigDecimal 的使用注意事项](#134-bigdecimal-%e7%9a%84%e4%bd%bf%e7%94%a8%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9)
-    - [1.3.5. 总结](#135-%e6%80%bb%e7%bb%93)
-  - [1.4. 基本数据类型与包装数据类型的使用标准](#14-%e5%9f%ba%e6%9c%ac%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b%e4%b8%8e%e5%8c%85%e8%a3%85%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b%e7%9a%84%e4%bd%bf%e7%94%a8%e6%a0%87%e5%87%86)
-- [2. 集合](#2-%e9%9b%86%e5%90%88)
-  - [2.1. Arrays.asList()使用指南](#21-arraysaslist%e4%bd%bf%e7%94%a8%e6%8c%87%e5%8d%97)
-    - [2.1.1. 简介](#211-%e7%ae%80%e4%bb%8b)
-    - [2.1.2. 《阿里巴巴Java 开发手册》对其的描述](#212-%e9%98%bf%e9%87%8c%e5%b7%b4%e5%b7%b4java-%e5%bc%80%e5%8f%91%e6%89%8b%e5%86%8c%e5%af%b9%e5%85%b6%e7%9a%84%e6%8f%8f%e8%bf%b0)
-    - [2.1.3. 使用时的注意事项总结](#213-%e4%bd%bf%e7%94%a8%e6%97%b6%e7%9a%84%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9%e6%80%bb%e7%bb%93)
-    - [2.1.4. 如何正确的将数组转换为ArrayList?](#214-%e5%a6%82%e4%bd%95%e6%ad%a3%e7%a1%ae%e7%9a%84%e5%b0%86%e6%95%b0%e7%bb%84%e8%bd%ac%e6%8d%a2%e4%b8%baarraylist)
-  - [2.2. Collection.toArray()方法使用的坑&如何反转数组](#22-collectiontoarray%e6%96%b9%e6%b3%95%e4%bd%bf%e7%94%a8%e7%9a%84%e5%9d%91%e5%a6%82%e4%bd%95%e5%8f%8d%e8%bd%ac%e6%95%b0%e7%bb%84)
-  - [2.3. 不要在 foreach 循环里进行元素的 remove/add 操作](#23-%e4%b8%8d%e8%a6%81%e5%9c%a8-foreach-%e5%be%aa%e7%8e%af%e9%87%8c%e8%bf%9b%e8%a1%8c%e5%85%83%e7%b4%a0%e7%9a%84-removeadd-%e6%93%8d%e4%bd%9c)
+<!-- TOC -->
+
+- [1. 基础](#1-基础)
+    - [1.1. 正确使用 equals 方法](#11-正确使用-equals-方法)
+    - [1.2. 整型包装类值的比较](#12-整型包装类值的比较)
+    - [1.3. BigDecimal](#13-bigdecimal)
+        - [1.3.1. BigDecimal 的用处](#131-bigdecimal-的用处)
+        - [1.3.2. BigDecimal 的大小比较](#132-bigdecimal-的大小比较)
+        - [1.3.3. BigDecimal 保留几位小数](#133-bigdecimal-保留几位小数)
+        - [1.3.4. BigDecimal 的使用注意事项](#134-bigdecimal-的使用注意事项)
+        - [1.3.5. 总结](#135-总结)
+    - [1.4. 基本数据类型与包装数据类型的使用标准](#14-基本数据类型与包装数据类型的使用标准)
+- [2. 集合](#2-集合)
+    - [2.1. Arrays.asList()使用指南](#21-arraysaslist使用指南)
+        - [2.1.1. 简介](#211-简介)
+        - [2.1.2. 《阿里巴巴Java 开发手册》对其的描述](#212-阿里巴巴java-开发手册对其的描述)
+        - [2.1.3. 使用时的注意事项总结](#213-使用时的注意事项总结)
+        - [2.1.4. 如何正确的将数组转换为ArrayList?](#214-如何正确的将数组转换为arraylist)
+    - [2.2. Collection.toArray()方法使用的坑&如何反转数组](#22-collectiontoarray方法使用的坑如何反转数组)
+    - [2.3. 不要在 foreach 循环里进行元素的 remove/add 操作](#23-不要在-foreach-循环里进行元素的-removeadd-操作)
 
 <!-- /TOC -->
 
@@ -130,7 +132,7 @@ System.out.println(n);// 1.255
 
 注意：我们在使用BigDecimal时，为了防止精度丢失，推荐使用它的 **BigDecimal(String)** 构造方法来创建对象。《阿里巴巴Java开发手册》对这部分内容也有提到如下图所示。
 
-![《阿里巴巴Java开发手册》对这部分BigDecimal的描述](../../media/pictures/Java/BigDecimal.png)
+![《阿里巴巴Java开发手册》对这部分BigDecimal的描述](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019/7/BigDecimal.png)
 
 ### 1.3.5. 总结
 
@@ -186,7 +188,7 @@ public static <T> List<T> asList(T... a) {
 
 `Arrays.asList()`将数组转换为集合后,底层其实还是数组，《阿里巴巴Java 开发手册》对于这个方法有如下描述：
 
-![阿里巴巴Java开发手-Arrays.asList()方法](../../media/pictures/Java/阿里巴巴Java开发手-Arrays.asList()方法.png)
+![阿里巴巴Java开发手-Arrays.asList()方法](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/阿里巴巴Java开发手-Arrays.asList()方法.png)
 
 ### 2.1.3. 使用时的注意事项总结
 
@@ -365,6 +367,7 @@ s=list.toArray(new String[0]);//没有指定类型的话会报错
 
 `java.util`包下面的所有的集合类都是fail-fast的，而`java.util.concurrent`包下面的所有的类都是fail-safe的。
 
-![不要在 foreach 循环里进行元素的 remove/add 操作](../../media/pictures/Java/foreach-remove_add.png)
+![不要在 foreach 循环里进行元素的 remove/add 操作](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019/7/foreach-remove:add.png)
+
 
 

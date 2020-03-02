@@ -1,37 +1,40 @@
 <!-- MarkdownTOC -->
-- [IO流学习总结](#io%e6%b5%81%e5%ad%a6%e4%b9%a0%e6%80%bb%e7%bb%93)
-  - [一　Java IO，硬骨头也能变软](#%e4%b8%80-java-io%e7%a1%ac%e9%aa%a8%e5%a4%b4%e4%b9%9f%e8%83%bd%e5%8f%98%e8%bd%af)
-  - [二　java IO体系的学习总结](#%e4%ba%8c-java-io%e4%bd%93%e7%b3%bb%e7%9a%84%e5%ad%a6%e4%b9%a0%e6%80%bb%e7%bb%93)
-- [NIO与AIO学习总结](#nio%e4%b8%8eaio%e5%ad%a6%e4%b9%a0%e6%80%bb%e7%bb%93)
-  - [一 Java NIO 概览](#%e4%b8%80-java-nio-%e6%a6%82%e8%a7%88)
-  - [二 Java NIO 之 Buffer(缓冲区)](#%e4%ba%8c-java-nio-%e4%b9%8b-buffer%e7%bc%93%e5%86%b2%e5%8c%ba)
-  - [三 Java NIO 之 Channel（通道）](#%e4%b8%89-java-nio-%e4%b9%8b-channel%e9%80%9a%e9%81%93)
-  - [四 Java NIO之Selector（选择器）](#%e5%9b%9b-java-nio%e4%b9%8bselector%e9%80%89%e6%8b%a9%e5%99%a8)
-  - [五 Java NIO之拥抱Path和Files](#%e4%ba%94-java-nio%e4%b9%8b%e6%8b%a5%e6%8a%b1path%e5%92%8cfiles)
-  - [六 NIO学习总结以及NIO新特性介绍](#%e5%85%ad-nio%e5%ad%a6%e4%b9%a0%e6%80%bb%e7%bb%93%e4%bb%a5%e5%8f%8anio%e6%96%b0%e7%89%b9%e6%80%a7%e4%bb%8b%e7%bb%8d)
-  - [七 Java NIO AsynchronousFileChannel异步文件通](#%e4%b8%83-java-nio-asynchronousfilechannel%e5%bc%82%e6%ad%a5%e6%96%87%e4%bb%b6%e9%80%9a)
-- [推荐阅读](#%e6%8e%a8%e8%8d%90%e9%98%85%e8%af%bb)
-  - [在 Java 7 中体会 NIO.2 异步执行的快乐](#%e5%9c%a8-java-7-%e4%b8%ad%e4%bd%93%e4%bc%9a-nio2-%e5%bc%82%e6%ad%a5%e6%89%a7%e8%a1%8c%e7%9a%84%e5%bf%ab%e4%b9%90)
-  - [Java AIO总结与示例](#java-aio%e6%80%bb%e7%bb%93%e4%b8%8e%e7%a4%ba%e4%be%8b)
-<!-- /MarkdownTOC -->
 
+- [IO流学习总结](#io流学习总结)
+  - [一　Java IO，硬骨头也能变软](#一-java-io，硬骨头也能变软)
+  - [二　java IO体系的学习总结](#二-java-io体系的学习总结)
+  - [三　Java IO面试题](#三-java-io面试题)
+- [NIO与AIO学习总结](#nio与aio学习总结)
+  - [一 Java NIO 概览](#一-java-nio-概览)
+  - [二 Java NIO 之 Buffer\(缓冲区\)](#二-java-nio-之-buffer缓冲区)
+  - [三 Java NIO 之 Channel（通道）](#三-java-nio-之-channel（通道）)
+  - [四 Java NIO之Selector（选择器）](#四-java-nio之selector（选择器）)
+  - [五 Java NIO之拥抱Path和Files](#五-java-nio之拥抱path和files)
+  - [六 NIO学习总结以及NIO新特性介绍](#六-nio学习总结以及nio新特性介绍)
+  - [七 Java NIO AsynchronousFileChannel异步文件通](#七-java-nio-asynchronousfilechannel异步文件通)
+  - [八 高并发Java（8）：NIO和AIO](#八-高并发java（8）：nio和aio)
+- [推荐阅读](#推荐阅读)
+  - [在 Java 7 中体会 NIO.2 异步执行的快乐](#在-java-7-中体会-nio2-异步执行的快乐)
+  - [Java AIO总结与示例](#java-aio总结与示例)
+
+<!-- /MarkdownTOC -->
 
 
 
 ## IO流学习总结
 
-### [一　Java IO，硬骨头也能变软]()
+### [一　Java IO，硬骨头也能变软](https://mp.weixin.qq.com/s?__biz=MzU4NDQ4MzU5OA==&mid=2247483981&idx=1&sn=6e5c682d76972c8d2cf271a85dcf09e2&chksm=fd98542ccaefdd3a70428e9549bc33e8165836855edaa748928d16c1ebde9648579d3acaac10#rd)
 
 **（1） 按操作方式分类结构图：**
 
-![IO-操作方式分类](../../media/pictures/Java/IO-操作方式分类.png)
+![IO-操作方式分类](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/IO-操作方式分类.png)
 
 
 **（2）按操作对象分类结构图**
 
-![IO-操作对象分类](../../media/pictures/Java/IO-操作对象分类.png)
+![IO-操作对象分类](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/IO-操作对象分类.png)
 
-### [二　java IO体系的学习总结]() 
+### [二　java IO体系的学习总结](https://blog.csdn.net/nightcurtis/article/details/51324105) 
 1. **IO流的分类：**
    - 按照流的流向分，可以分为输入流和输出流；
    - 按照操作单元划分，可以划分为字节流和字符流；
@@ -44,11 +47,12 @@
    - **OutputStream/Writer**: 所有输出流的基类，前者是字节输出流，后者是字符输出流。
 3. **常用的io流的用法** 
 
+### [三　Java IO面试题](https://mp.weixin.qq.com/s?__biz=MzU4NDQ4MzU5OA==&mid=2247483985&idx=1&sn=38531c2cee7b87f125df7aef41637014&chksm=fd985430caefdd26b0506aa84fc26251877eccba24fac73169a4d6bd1eb5e3fbdf3c3b940261#rd)
 
 ## NIO与AIO学习总结
 
 
-### [一 Java NIO 概览]()
+### [一 Java NIO 概览](https://mp.weixin.qq.com/s?__biz=MzU4NDQ4MzU5OA==&mid=2247483956&idx=1&sn=57692bc5b7c2c6dfb812489baadc29c9&chksm=fd985455caefdd4331d828d8e89b22f19b304aa87d6da73c5d8c66fcef16e4c0b448b1a6f791#rd)
 
 1.  **NIO简介**:
 
@@ -69,7 +73,7 @@
     - **Selectors**
 
 
-### [二 Java NIO 之 Buffer(缓冲区)]()
+### [二 Java NIO 之 Buffer(缓冲区)](https://mp.weixin.qq.com/s?__biz=MzU4NDQ4MzU5OA==&mid=2247483961&idx=1&sn=f67bef4c279e78043ff649b6b03fdcbc&chksm=fd985458caefdd4e3317ccbdb2d0a5a70a5024d3255eebf38183919ed9c25ade536017c0a6ba#rd)
 
 1. **Buffer(缓冲区)介绍:**
    - Java NIO Buffers用于和NIO Channel交互。 我们从Channel中读取数据到buffers里，从Buffer把数据写入到Channels；
@@ -103,7 +107,7 @@
     说实话，NIO编程真的难，通过后面这个测试例子，你可能才能勉强理解前面说的Buffer方法的作用。
 
 
-### [三 Java NIO 之 Channel（通道）]()
+### [三 Java NIO 之 Channel（通道）](https://mp.weixin.qq.com/s?__biz=MzU4NDQ4MzU5OA==&mid=2247483966&idx=1&sn=d5cf18c69f5f9ec2aff149270422731f&chksm=fd98545fcaefdd49296e2c78000ce5da277435b90ba3c03b92b7cf54c6ccc71d61d13efbce63#rd)
 
 
 1.  **Channel（通道）介绍**
@@ -121,7 +125,7 @@
    - transferTo() :transferTo方法把FileChannel数据传输到另一个channel
    
 
-### [四 Java NIO之Selector（选择器）]()
+### [四 Java NIO之Selector（选择器）](https://mp.weixin.qq.com/s?__biz=MzU4NDQ4MzU5OA==&mid=2247483970&idx=1&sn=d5e2b133313b1d0f32872d54fbdf0aa7&chksm=fd985423caefdd354b587e57ce6cf5f5a7bec48b9ab7554f39a8d13af47660cae793956e0f46#rd)
 
 
 1. **Selector（选择器）介绍**
@@ -153,7 +157,7 @@
 
 
 
-### [五 Java NIO之拥抱Path和Files]()
+### [五 Java NIO之拥抱Path和Files](https://mp.weixin.qq.com/s?__biz=MzU4NDQ4MzU5OA==&mid=2247483976&idx=1&sn=2296c05fc1b840a64679e2ad7794c96d&chksm=fd985429caefdd3f48e2ee6fdd7b0f6fc419df90b3de46832b484d6d1ca4e74e7837689c8146&token=537240785&lang=zh_CN#rd)
 
 **一 文件I/O基石：Path：**
 - 创建一个Path
@@ -171,15 +175,17 @@
 -   遍历一个文件夹
 -   Files.walkFileTree()遍历整个目录
 
-### [六 NIO学习总结以及NIO新特性介绍]()
+### [六 NIO学习总结以及NIO新特性介绍](https://blog.csdn.net/a953713428/article/details/64907250)
 
 - **内存映射：**
 
 这个功能主要是为了提高大文件的读写速度而设计的。内存映射文件(memory-mappedfile)能让你创建和修改那些大到无法读入内存的文件。有了内存映射文件，你就可以认为文件已经全部读进了内存，然后把它当成一个非常大的数组来访问了。将文件的一段区域映射到内存中，比传统的文件处理速度要快很多。内存映射文件它虽然最终也是要从磁盘读取数据，但是它并不需要将数据读取到OS内核缓冲区，而是直接将进程的用户私有地址空间中的一部分区域与文件对象建立起映射关系，就好像直接从内存中读、写文件一样，速度当然快了。
 
-### [七 Java NIO AsynchronousFileChannel异步文件通]()
+### [七 Java NIO AsynchronousFileChannel异步文件通](http://wiki.jikexueyuan.com/project/java-nio-zh/java-nio-asynchronousfilechannel.html)
 
 Java7中新增了AsynchronousFileChannel作为nio的一部分。AsynchronousFileChannel使得数据可以进行异步读写。
+
+### [八 高并发Java（8）：NIO和AIO](http://www.importnew.com/21341.html)
 
 
 
@@ -190,3 +196,5 @@ Java7中新增了AsynchronousFileChannel作为nio的一部分。AsynchronousFile
 ### [Java AIO总结与示例](https://blog.csdn.net/x_i_y_u_e/article/details/52223406)
 AIO是异步IO的缩写，虽然NIO在网络操作中，提供了非阻塞的方法，但是NIO的IO行为还是同步的。对于NIO来说，我们的业务线程是在IO操作准备好时，得到通知，接着就由这个线程自行进行IO操作，IO操作本身是同步的。
 
+
+**欢迎关注我的微信公众号:"Java面试通关手册"（一个有温度的微信公众号，期待与你共同进步~~~坚持原创，分享美文，分享各种Java学习资源）：**

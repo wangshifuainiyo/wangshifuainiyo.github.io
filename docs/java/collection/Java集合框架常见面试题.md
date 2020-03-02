@@ -1,31 +1,37 @@
-- [剖析面试最常见问题之Java集合框架](#%e5%89%96%e6%9e%90%e9%9d%a2%e8%af%95%e6%9c%80%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98%e4%b9%8bjava%e9%9b%86%e5%90%88%e6%a1%86%e6%9e%b6)
-  - [说说List,Set,Map三者的区别？](#%e8%af%b4%e8%af%b4listsetmap%e4%b8%89%e8%80%85%e7%9a%84%e5%8c%ba%e5%88%ab)
-  - [Arraylist 与 LinkedList 区别?](#arraylist-%e4%b8%8e-linkedlist-%e5%8c%ba%e5%88%ab)
-    - [**补充内容:RandomAccess接口**](#%e8%a1%a5%e5%85%85%e5%86%85%e5%ae%b9randomaccess%e6%8e%a5%e5%8f%a3)
-    - [补充内容:双向链表和双向循环链表](#%e8%a1%a5%e5%85%85%e5%86%85%e5%ae%b9%e5%8f%8c%e5%90%91%e9%93%be%e8%a1%a8%e5%92%8c%e5%8f%8c%e5%90%91%e5%be%aa%e7%8e%af%e9%93%be%e8%a1%a8)
-  - [ArrayList 与 Vector 区别呢?为什么要用Arraylist取代Vector呢？](#arraylist-%e4%b8%8e-vector-%e5%8c%ba%e5%88%ab%e5%91%a2%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e7%94%a8arraylist%e5%8f%96%e4%bb%a3vector%e5%91%a2)
-  - [说一说 ArrayList 的扩容机制吧](#%e8%af%b4%e4%b8%80%e8%af%b4-arraylist-%e7%9a%84%e6%89%a9%e5%ae%b9%e6%9c%ba%e5%88%b6%e5%90%a7)
-  - [HashMap 和 Hashtable 的区别](#hashmap-%e5%92%8c-hashtable-%e7%9a%84%e5%8c%ba%e5%88%ab)
-  - [HashMap 和 HashSet区别](#hashmap-%e5%92%8c-hashset%e5%8c%ba%e5%88%ab)
-  - [HashSet如何检查重复](#hashset%e5%a6%82%e4%bd%95%e6%a3%80%e6%9f%a5%e9%87%8d%e5%a4%8d)
-  - [HashMap的底层实现](#hashmap%e7%9a%84%e5%ba%95%e5%b1%82%e5%ae%9e%e7%8e%b0)
-    - [JDK1.8之前](#jdk18%e4%b9%8b%e5%89%8d)
-    - [JDK1.8之后](#jdk18%e4%b9%8b%e5%90%8e)
-  - [HashMap 的长度为什么是2的幂次方](#hashmap-%e7%9a%84%e9%95%bf%e5%ba%a6%e4%b8%ba%e4%bb%80%e4%b9%88%e6%98%af2%e7%9a%84%e5%b9%82%e6%ac%a1%e6%96%b9)
-  - [HashMap 多线程操作导致死循环问题](#hashmap-%e5%a4%9a%e7%ba%bf%e7%a8%8b%e6%93%8d%e4%bd%9c%e5%af%bc%e8%87%b4%e6%ad%bb%e5%be%aa%e7%8e%af%e9%97%ae%e9%a2%98)
-  - [ConcurrentHashMap 和 Hashtable 的区别](#concurrenthashmap-%e5%92%8c-hashtable-%e7%9a%84%e5%8c%ba%e5%88%ab)
-  - [ConcurrentHashMap线程安全的具体实现方式/底层具体实现](#concurrenthashmap%e7%ba%bf%e7%a8%8b%e5%ae%89%e5%85%a8%e7%9a%84%e5%85%b7%e4%bd%93%e5%ae%9e%e7%8e%b0%e6%96%b9%e5%bc%8f%e5%ba%95%e5%b1%82%e5%85%b7%e4%bd%93%e5%ae%9e%e7%8e%b0)
-    - [JDK1.7（上面有示意图）](#jdk17%e4%b8%8a%e9%9d%a2%e6%9c%89%e7%a4%ba%e6%84%8f%e5%9b%be)
-    - [JDK1.8 （上面有示意图）](#jdk18-%e4%b8%8a%e9%9d%a2%e6%9c%89%e7%a4%ba%e6%84%8f%e5%9b%be)
-  - [comparable 和 Comparator的区别](#comparable-%e5%92%8c-comparator%e7%9a%84%e5%8c%ba%e5%88%ab)
-    - [Comparator定制排序](#comparator%e5%ae%9a%e5%88%b6%e6%8e%92%e5%ba%8f)
-    - [重写compareTo方法实现按年龄来排序](#%e9%87%8d%e5%86%99compareto%e6%96%b9%e6%b3%95%e5%ae%9e%e7%8e%b0%e6%8c%89%e5%b9%b4%e9%be%84%e6%9d%a5%e6%8e%92%e5%ba%8f)
-  - [集合框架底层数据结构总结](#%e9%9b%86%e5%90%88%e6%a1%86%e6%9e%b6%e5%ba%95%e5%b1%82%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e6%80%bb%e7%bb%93)
-    - [Collection](#collection)
-      - [1. List](#1-list)
-      - [2. Set](#2-set)
-    - [Map](#map)
-  - [如何选用集合?](#%e5%a6%82%e4%bd%95%e9%80%89%e7%94%a8%e9%9b%86%e5%90%88)
+点击关注[公众号](#公众号)及时获取笔主最新更新文章，并可免费领取本文档配套的《Java面试突击》以及Java工程师必备学习资源。
+
+<!-- TOC -->
+
+- [剖析面试最常见问题之Java集合框架](#剖析面试最常见问题之java集合框架)
+    - [说说List,Set,Map三者的区别？](#说说listsetmap三者的区别)
+    - [Arraylist 与 LinkedList 区别?](#arraylist-与-linkedlist-区别)
+        - [补充内容:RandomAccess接口](#补充内容randomaccess接口)
+        - [补充内容:双向链表和双向循环链表](#补充内容双向链表和双向循环链表)
+    - [ArrayList 与 Vector 区别呢?为什么要用Arraylist取代Vector呢？](#arraylist-与-vector-区别呢为什么要用arraylist取代vector呢)
+    - [说一说 ArrayList 的扩容机制吧](#说一说-arraylist-的扩容机制吧)
+    - [HashMap 和 Hashtable 的区别](#hashmap-和-hashtable-的区别)
+    - [HashMap 和 HashSet区别](#hashmap-和-hashset区别)
+    - [HashSet如何检查重复](#hashset如何检查重复)
+    - [HashMap的底层实现](#hashmap的底层实现)
+        - [JDK1.8之前](#jdk18之前)
+        - [JDK1.8之后](#jdk18之后)
+    - [HashMap 的长度为什么是2的幂次方](#hashmap-的长度为什么是2的幂次方)
+    - [HashMap 多线程操作导致死循环问题](#hashmap-多线程操作导致死循环问题)
+    - [ConcurrentHashMap 和 Hashtable 的区别](#concurrenthashmap-和-hashtable-的区别)
+    - [ConcurrentHashMap线程安全的具体实现方式/底层具体实现](#concurrenthashmap线程安全的具体实现方式底层具体实现)
+        - [JDK1.7（上面有示意图）](#jdk17上面有示意图)
+        - [JDK1.8 （上面有示意图）](#jdk18-上面有示意图)
+    - [comparable 和 Comparator的区别](#comparable-和-comparator的区别)
+        - [Comparator定制排序](#comparator定制排序)
+        - [重写compareTo方法实现按年龄来排序](#重写compareto方法实现按年龄来排序)
+    - [集合框架底层数据结构总结](#集合框架底层数据结构总结)
+        - [Collection](#collection)
+            - [1. List](#1-list)
+            - [2. Set](#2-set)
+        - [Map](#map)
+    - [如何选用集合?](#如何选用集合)
+
+<!-- /TOC -->
 
 # 剖析面试最常见问题之Java集合框架
 
@@ -79,7 +85,11 @@ public interface RandomAccess {
 
 **双向链表：** 包含两个指针，一个prev指向前一个节点，一个next指向后一个节点。
 
+![双向链表](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/双向链表.png)
+
 **双向循环链表：** 最后一个节点的 next 指向head，而 head 的prev指向最后一个节点，构成一个环。
+
+![双向循环链表](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/双向循环链表.png)
 
 ## ArrayList 与 Vector 区别呢?为什么要用Arraylist取代Vector呢？
 
@@ -89,7 +99,7 @@ public interface RandomAccess {
 
 ## 说一说 ArrayList 的扩容机制吧
 
-详见这篇文章:[通过源码一步一步分析ArrayList 扩容机制](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/ArrayList-Grow.md)
+详见笔主的这篇文章:[通过源码一步一步分析ArrayList 扩容机制](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/ArrayList-Grow.md)
 
 ## HashMap 和 Hashtable 的区别
 
@@ -204,13 +214,13 @@ static int hash(int h) {
 
 所谓 **“拉链法”** 就是：将链表和数组相结合。也就是说创建一个链表数组，数组中每一格就是一个链表。若遇到哈希冲突，则将冲突的值加到链表中即可。
 
-![jdk1.8之前的内部结构-HashMap](../../../media/pictures/Java/jdk1.8之前的内部结构-HashMap.jpg)
+![jdk1.8之前的内部结构-HashMap](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/jdk1.8之前的内部结构-HashMap.jpg)
 
 ### JDK1.8之后
 
 相比于之前的版本， JDK1.8之后在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为8）时，将链表转化为红黑树，以减少搜索时间。
 
-![jdk1.8之后的内部结构-HashMap](../../../media/pictures/Java/JDK1.8之后的HashMap底层数据结构.jpg)
+![jdk1.8之后的内部结构-HashMap](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/JDK1.8之后的HashMap底层数据结构.jpg)
 
 > TreeMap、TreeSet以及JDK1.8之后的HashMap底层都用到了红黑树。红黑树就是为了解决二叉查找树的缺陷，因为二叉查找树在某些情况下会退化成一个线性结构。
 
@@ -245,15 +255,15 @@ ConcurrentHashMap 和 Hashtable 的区别主要体现在实现线程安全的方
 
 **HashTable:**
 
-![HashTable全表锁](../../../media/pictures/Java/HashTable全表锁.png)
+![HashTable全表锁](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/HashTable全表锁.png)
 
 **JDK1.7的ConcurrentHashMap：**
 
-![JDK1.7的ConcurrentHashMap](../../../media/pictures/Java/ConcurrentHashMap分段锁.jpg)
+![JDK1.7的ConcurrentHashMap](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/ConcurrentHashMap分段锁.jpg)
 
 **JDK1.8的ConcurrentHashMap（TreeBin: 红黑二叉树节点 Node: 链表节点）：**
 
-![JDK1.8的ConcurrentHashMap](../../../media/pictures/Java/JDK1.8-ConcurrentHashMap-Structure.jpg)
+![JDK1.8的ConcurrentHashMap](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/JDK1.8-ConcurrentHashMap-Structure.jpg)
 
 ## ConcurrentHashMap线程安全的具体实现方式/底层具体实现
 
@@ -435,3 +445,12 @@ Output：
 
 主要根据集合的特点来选用，比如我们需要根据键值获取到元素值时就选用Map接口下的集合，需要排序时选择TreeMap,不需要排序时就选择HashMap,需要保证线程安全就选用ConcurrentHashMap.当我们只需要存放元素值时，就选择实现Collection接口的集合，需要保证元素唯一时选择实现Set接口的集合比如TreeSet或HashSet，不需要就选择实现List接口的比如ArrayList或LinkedList，然后再根据实现这些接口的集合的特点来选用。
 
+## 公众号
+
+如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号。
+
+**《Java面试突击》:** 由本文档衍生的专为面试而生的《Java面试突击》V2.0 PDF 版本[公众号](#公众号)后台回复 **"Java面试突击"** 即可免费领取！
+
+**Java工程师必备学习资源:** 一些Java工程师常用学习资源公众号后台回复关键字 **“1”** 即可免费无套路获取。
+
+![我的公众号](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/167598cd2e17b8ec.png)
