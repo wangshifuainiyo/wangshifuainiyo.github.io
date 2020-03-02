@@ -1,5 +1,5 @@
-> #### [Gitee](https://wangxuejie9527.gitee.io)   国内高速链接
-> #### [Github](https://wangxuejie9527.github.io) 连接
+>  [Gitee](https://wangxuejie9527.gitee.io)   更好的体验
+>  [Github](https://wangxuejie9527.github.io) 
 ## 目录
 
 - [Java](#java)
