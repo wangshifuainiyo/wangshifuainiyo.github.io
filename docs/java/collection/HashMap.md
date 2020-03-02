@@ -1,19 +1,15 @@
 <!-- MarkdownTOC -->
-
-- [HashMap 简介](#hashmap-简介)
-- [底层数据结构分析](#底层数据结构分析)
-  - [JDK1.8之前](#jdk18之前)
-  - [JDK1.8之后](#jdk18之后)
-- [HashMap源码分析](#hashmap源码分析)
-  - [构造方法](#构造方法)
-  - [put方法](#put方法)
-  - [get方法](#get方法)
-  - [resize方法](#resize方法)
-- [HashMap常用方法测试](#hashmap常用方法测试)
-
+- [HashMap 简介](#hashmap-%e7%ae%80%e4%bb%8b)
+- [底层数据结构分析](#%e5%ba%95%e5%b1%82%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e5%88%86%e6%9e%90)
+  - [JDK1.8之前](#jdk18%e4%b9%8b%e5%89%8d)
+  - [JDK1.8之后](#jdk18%e4%b9%8b%e5%90%8e)
+- [HashMap源码分析](#hashmap%e6%ba%90%e7%a0%81%e5%88%86%e6%9e%90)
+  - [构造方法](#%e6%9e%84%e9%80%a0%e6%96%b9%e6%b3%95)
+  - [put方法](#put%e6%96%b9%e6%b3%95)
+  - [get方法](#get%e6%96%b9%e6%b3%95)
+  - [resize方法](#resize%e6%96%b9%e6%b3%95)
+- [HashMap常用方法测试](#hashmap%e5%b8%b8%e7%94%a8%e6%96%b9%e6%b3%95%e6%b5%8b%e8%af%95)
 <!-- /MarkdownTOC -->
-
-> 感谢 [changfubai](https://github.com/changfubai) 对本文的改进做出的贡献！
 
 ## HashMap 简介
 HashMap 主要用来存放键值对，它基于哈希表的Map接口实现</font>，是常用的Java集合之一。 

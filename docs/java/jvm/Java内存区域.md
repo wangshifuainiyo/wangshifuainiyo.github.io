@@ -1,40 +1,33 @@
-点击关注[公众号](#公众号)及时获取笔主最新更新文章，并可免费领取本文档配套的《Java面试突击》以及Java工程师必备学习资源。
-
-<!-- TOC -->
-
-- [Java 内存区域详解](#java-内存区域详解)
-    - [写在前面 (常见面试题)](#写在前面-常见面试题)
-        - [基本问题](#基本问题)
-        - [拓展问题](#拓展问题)
-    - [一 概述](#一-概述)
-    - [二 运行时数据区域](#二-运行时数据区域)
-        - [2.1 程序计数器](#21-程序计数器)
-        - [2.2 Java 虚拟机栈](#22-java-虚拟机栈)
-        - [2.3 本地方法栈](#23-本地方法栈)
-        - [2.4 堆](#24-堆)
-        - [2.5 方法区](#25-方法区)
-            - [2.5.1 方法区和永久代的关系](#251-方法区和永久代的关系)
-            - [2.5.2 常用参数](#252-常用参数)
-            - [2.5.3 为什么要将永久代 (PermGen) 替换为元空间 (MetaSpace) 呢?](#253-为什么要将永久代-permgen-替换为元空间-metaspace-呢)
-        - [2.6 运行时常量池](#26-运行时常量池)
-        - [2.7 直接内存](#27-直接内存)
-    - [三 HotSpot 虚拟机对象探秘](#三-hotspot-虚拟机对象探秘)
-        - [3.1 对象的创建](#31-对象的创建)
-            - [Step1:类加载检查](#step1类加载检查)
-            - [Step2:分配内存](#step2分配内存)
-            - [Step3:初始化零值](#step3初始化零值)
-            - [Step4:设置对象头](#step4设置对象头)
-            - [Step5:执行 init 方法](#step5执行-init-方法)
-        - [3.2 对象的内存布局](#32-对象的内存布局)
-        - [3.3 对象的访问定位](#33-对象的访问定位)
-    - [四  重点补充内容](#四--重点补充内容)
-        - [4.1 String 类和常量池](#41-string-类和常量池)
-        - [4.2 String s1 = new String("abc");这句话创建了几个字符串对象？](#42-string-s1--new-stringabc这句话创建了几个字符串对象)
-        - [4.3 8 种基本类型的包装类和常量池](#43-8-种基本类型的包装类和常量池)
-    - [参考](#参考)
-    - [公众号](#公众号)
-
-<!-- /TOC -->
+- [Java 内存区域详解](#java-%e5%86%85%e5%ad%98%e5%8c%ba%e5%9f%9f%e8%af%a6%e8%a7%a3)
+  - [写在前面 (常见面试题)](#%e5%86%99%e5%9c%a8%e5%89%8d%e9%9d%a2-%e5%b8%b8%e8%a7%81%e9%9d%a2%e8%af%95%e9%a2%98)
+    - [基本问题](#%e5%9f%ba%e6%9c%ac%e9%97%ae%e9%a2%98)
+    - [拓展问题](#%e6%8b%93%e5%b1%95%e9%97%ae%e9%a2%98)
+  - [一 概述](#%e4%b8%80-%e6%a6%82%e8%bf%b0)
+  - [二 运行时数据区域](#%e4%ba%8c-%e8%bf%90%e8%a1%8c%e6%97%b6%e6%95%b0%e6%8d%ae%e5%8c%ba%e5%9f%9f)
+    - [2.1 程序计数器](#21-%e7%a8%8b%e5%ba%8f%e8%ae%a1%e6%95%b0%e5%99%a8)
+    - [2.2 Java 虚拟机栈](#22-java-%e8%99%9a%e6%8b%9f%e6%9c%ba%e6%a0%88)
+    - [2.3 本地方法栈](#23-%e6%9c%ac%e5%9c%b0%e6%96%b9%e6%b3%95%e6%a0%88)
+    - [2.4 堆](#24-%e5%a0%86)
+    - [2.5 方法区](#25-%e6%96%b9%e6%b3%95%e5%8c%ba)
+      - [2.5.1 方法区和永久代的关系](#251-%e6%96%b9%e6%b3%95%e5%8c%ba%e5%92%8c%e6%b0%b8%e4%b9%85%e4%bb%a3%e7%9a%84%e5%85%b3%e7%b3%bb)
+      - [2.5.2 常用参数](#252-%e5%b8%b8%e7%94%a8%e5%8f%82%e6%95%b0)
+      - [2.5.3 为什么要将永久代 (PermGen) 替换为元空间 (MetaSpace) 呢?](#253-%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e5%b0%86%e6%b0%b8%e4%b9%85%e4%bb%a3-permgen-%e6%9b%bf%e6%8d%a2%e4%b8%ba%e5%85%83%e7%a9%ba%e9%97%b4-metaspace-%e5%91%a2)
+    - [2.6 运行时常量池](#26-%e8%bf%90%e8%a1%8c%e6%97%b6%e5%b8%b8%e9%87%8f%e6%b1%a0)
+    - [2.7 直接内存](#27-%e7%9b%b4%e6%8e%a5%e5%86%85%e5%ad%98)
+  - [三 HotSpot 虚拟机对象探秘](#%e4%b8%89-hotspot-%e8%99%9a%e6%8b%9f%e6%9c%ba%e5%af%b9%e8%b1%a1%e6%8e%a2%e7%a7%98)
+    - [3.1 对象的创建](#31-%e5%af%b9%e8%b1%a1%e7%9a%84%e5%88%9b%e5%bb%ba)
+      - [Step1:类加载检查](#step1%e7%b1%bb%e5%8a%a0%e8%bd%bd%e6%a3%80%e6%9f%a5)
+      - [Step2:分配内存](#step2%e5%88%86%e9%85%8d%e5%86%85%e5%ad%98)
+      - [Step3:初始化零值](#step3%e5%88%9d%e5%a7%8b%e5%8c%96%e9%9b%b6%e5%80%bc)
+      - [Step4:设置对象头](#step4%e8%ae%be%e7%bd%ae%e5%af%b9%e8%b1%a1%e5%a4%b4)
+      - [Step5:执行 init 方法](#step5%e6%89%a7%e8%a1%8c-init-%e6%96%b9%e6%b3%95)
+    - [3.2 对象的内存布局](#32-%e5%af%b9%e8%b1%a1%e7%9a%84%e5%86%85%e5%ad%98%e5%b8%83%e5%b1%80)
+    - [3.3 对象的访问定位](#33-%e5%af%b9%e8%b1%a1%e7%9a%84%e8%ae%bf%e9%97%ae%e5%ae%9a%e4%bd%8d)
+  - [四  重点补充内容](#%e5%9b%9b-%e9%87%8d%e7%82%b9%e8%a1%a5%e5%85%85%e5%86%85%e5%ae%b9)
+    - [4.1 String 类和常量池](#41-string-%e7%b1%bb%e5%92%8c%e5%b8%b8%e9%87%8f%e6%b1%a0)
+    - [4.2 String s1 = new String("abc");这句话创建了几个字符串对象？](#42-string-s1--new-string%22abc%22%e8%bf%99%e5%8f%a5%e8%af%9d%e5%88%9b%e5%bb%ba%e4%ba%86%e5%87%a0%e4%b8%aa%e5%ad%97%e7%ac%a6%e4%b8%b2%e5%af%b9%e8%b1%a1)
+    - [4.3 8 种基本类型的包装类和常量池](#43-8-%e7%a7%8d%e5%9f%ba%e6%9c%ac%e7%b1%bb%e5%9e%8b%e7%9a%84%e5%8c%85%e8%a3%85%e7%b1%bb%e5%92%8c%e5%b8%b8%e9%87%8f%e6%b1%a0)
+  - [参考](#%e5%8f%82%e8%80%83)
 
 # Java 内存区域详解
 
@@ -62,15 +55,11 @@ Java 虚拟机在执行 Java 程序的过程中会把它管理的内存划分成
 
 **JDK 1.8 之前：**
 
-<div align="center">  
-<img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3/JVM运行时数据区域.png" width="600px"/>
-</div>
+![](../../../media/pictures/Java/JVM运行时数据区域.png)
 
 **JDK 1.8 ：**
 
-<div align="center">  
-<img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3Java运行时数据区域JDK1.8.png" width="600px"/>
-</div>
+![](../../../media/pictures/Java/2019-3Java运行时数据区域JDK1.8.png)
 
 **线程私有的：**
 
@@ -142,17 +131,17 @@ Java 堆是垃圾收集器管理的主要区域，因此也被称作**GC 堆（G
 2. 老生代(Old Generation)
 3. 永生代(Permanent Generation)
 
-![JVM堆内存结构-JDK7](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-11/JVM堆内存结构-JDK7.jpg)
+![JVM堆内存结构-JDK7](../../../media/pictures/Java/JVM堆内存结构-JDK7.jpg)
 
 JDK 8 版本之后方法区（HotSpot 的永久代）被彻底移除了（JDK1.7 就已经开始了），取而代之是元空间，元空间使用的是直接内存。
 
-![JVM堆内存结构-JDK8](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-11/JVM堆内存结构-jdk8.jpg)
+![JVM堆内存结构-JDK8](../../../media/pictures/Java/JVM堆内存结构-jdk8.jpg)
 
 **上图所示的 Eden 区、两个 Survivor 区都属于新生代（为了区分，这两个 Survivor 区域按照顺序被命名为 from 和 to），中间一层属于老年代。**
 
 大部分情况，对象都会首先在 Eden 区域分配，在一次新生代垃圾回收后，如果对象还存活，则会进入 s0 或者 s1，并且对象的年龄还会加  1(Eden 区->Survivor 区后对象的初始年龄变为 1)，当它的年龄增加到一定程度（默认为 15 岁），就会被晋升到老年代中。对象晋升到老年代的年龄阈值，可以通过参数 `-XX:MaxTenuringThreshold` 来设置。
 
-> 修正（[issue552](https://github.com/Snailclimb/JavaGuide/issues/552)）：“Hotspot遍历所有对象时，按照年龄从小到大对其所占用的大小进行累积，当累积的某个年龄大小超过了survivor区的一半时，取这个年龄和MaxTenuringThreshold中更小的一个值，作为新的晋升年龄阈值”。
+> 修正：“Hotspot遍历所有对象时，按照年龄从小到大对其所占用的大小进行累积，当累积的某个年龄大小超过了survivor区的一半时，取这个年龄和MaxTenuringThreshold中更小的一个值，作为新的晋升年龄阈值”。
 >
 > **动态年龄计算的代码如下**
 >
@@ -232,7 +221,7 @@ JDK 1.8 的时候，方法区（HotSpot 的永久代）被彻底移除了（JDK1
 
 **JDK1.7 及之后版本的 JVM 已经将运行时常量池从方法区中移了出来，在 Java 堆（Heap）中开辟了一块区域存放运行时常量池。** 
 
-![](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-9-14/26038433.jpg)
+![](../../../media/pictures/Java/常量池.jpg)
 ——图片来源：https://blog.csdn.net/wangbiao007/article/details/78545189
 
 
@@ -250,7 +239,7 @@ JDK1.4 中新加入的 **NIO(New Input/Output) 类**，引入了一种基于**�
 
 ### 3.1 对象的创建
 下图便是 Java 对象的创建过程，我建议最好是能默写出来，并且要掌握每一步在做什么。
-![Java创建对象的过程](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/Java创建对象的过程.png)
+![Java创建对象的过程](../../../media/pictures/Java/Java创建对象的过程.png)
 
 #### Step1:类加载检查
 
@@ -265,7 +254,7 @@ JDK1.4 中新加入的 **NIO(New Input/Output) 类**，引入了一种基于**�
 
 选择以上两种方式中的哪一种，取决于 Java 堆内存是否规整。而 Java 堆内存是否规整，取决于 GC 收集器的算法是"标记-清除"，还是"标记-整理"（也称作"标记-压缩"），值得注意的是，复制算法内存也是规整的
 
-![内存分配的两种方式](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/内存分配的两种方式.png)
+![内存分配的两种方式](../../../media/pictures/Java/内存分配的两种方式.png)
 
 **内存分配并发问题（补充内容，需要掌握）**
 
@@ -302,11 +291,11 @@ JDK1.4 中新加入的 **NIO(New Input/Output) 类**，引入了一种基于**�
 
 1. **句柄：** 如果使用句柄的话，那么 Java 堆中将会划分出一块内存来作为句柄池，reference 中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自的具体地址信息；
 
-  ![对象的访问定位-使用句柄](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/对象的访问定位-使用句柄.png)
-
+  ![对象的访问定位-使用句柄](../../../media/pictures/Java/对象的访问定位-使用句柄.png)
+  
 2. **直接指针：**  如果使用直接指针访问，那么 Java 堆对象的布局中就必须考虑如何放置访问类型数据的相关信息，而 reference 中存储的直接就是对象的地址。
 
-![对象的访问定位-直接指针](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/对象的访问定位-直接指针.png)
+![对象的访问定位-直接指针](../../../media/pictures/Java/对象的访问定位-直接指针.png)
 
 **这两种对象访问方式各有优势。使用句柄来访问的最大好处是 reference 中存储的是稳定的句柄地址，在对象被移动时只会改变句柄中的实例数据指针，而 reference 本身不需要修改。使用直接指针访问方式最大的好处就是速度快，它节省了一次指针定位的时间开销。**
 
@@ -334,7 +323,7 @@ System.out.println(str2==str3);//false
 
 再给大家一个图应该更容易理解，图片来源：<https://www.journaldev.com/797/what-is-java-string-pool>：
 
-![String-Pool-Java](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3String-Pool-Java1-450x249.png)
+![String-Pool-Java](../../../media/pictures/Java/2019-3String-Pool-Java1-450x249.png)
 
 **String 类型的常量池比较特殊。它的主要使用方法有两种：**
 
@@ -362,7 +351,7 @@ System.out.println(str2==str3);//false
 		  System.out.println(str3 == str5);//true
 		  System.out.println(str4 == str5);//false
 ```
-![字符串拼接](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/字符串拼接-常量池2.png)
+![字符串拼接](../../../media/pictures/Java/字符串拼接-常量池2.png)
 
 尽量避免多个字符串拼接，因为这样会重新创建对象。如果需要改变字符串的话，可以使用 StringBuilder 或者 StringBuffer。
 ### 4.2 String s1 = new String("abc");这句话创建了几个字符串对象？
@@ -487,12 +476,3 @@ i4=i5+i6   true
 - <https://stackoverflow.com/questions/9095748/method-area-and-permgen>
 - 深入解析String#intern<https://tech.meituan.com/2014/03/06/in-depth-understanding-string-intern.html>
 
-## 公众号
-
-如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号。
-
-**《Java面试突击》:** 由本文档衍生的专为面试而生的《Java面试突击》V2.0 PDF 版本[公众号](#公众号)后台回复 **"Java面试突击"** 即可免费领取！
-
-**Java工程师必备学习资源:** 一些Java工程师常用学习资源[公众号](#公众号)后台回复关键字 **“1”** 即可免费无套路获取。 
-
-![我的公众号](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/167598cd2e17b8ec.png)

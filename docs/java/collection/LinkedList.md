@@ -1,17 +1,15 @@
 
 <!-- MarkdownTOC -->
-
-- [简介](#简介)
-- [内部结构分析](#内部结构分析)
-- [LinkedList源码分析](#linkedlist源码分析)
-    - [构造方法](#构造方法)
-    - [添加（add）方法](#add方法)
-    - [根据位置取数据的方法](#根据位置取数据的方法)
-    - [根据对象得到索引的方法](#根据对象得到索引的方法)
-    - [检查链表是否包含某对象的方法：](#检查链表是否包含某对象的方法：)
-    - [删除（remove/pop）方法](#删除方法)
-- [LinkedList类常用方法测试：](#linkedlist类常用方法测试)
-
+- [<font face="楷体" id="1">简介</font>](#font-face%22%e6%a5%b7%e4%bd%93%22-id%221%22%e7%ae%80%e4%bb%8bfont)
+- [<font face="楷体" id="2">内部结构分析</font>](#font-face%22%e6%a5%b7%e4%bd%93%22-id%222%22%e5%86%85%e9%83%a8%e7%bb%93%e6%9e%84%e5%88%86%e6%9e%90font)
+- [<font face="楷体" id="3">LinkedList源码分析</font>](#font-face%22%e6%a5%b7%e4%bd%93%22-id%223%22linkedlist%e6%ba%90%e7%a0%81%e5%88%86%e6%9e%90font)
+  - [<font face="楷体" id="3.1">构造方法</font>](#font-face%22%e6%a5%b7%e4%bd%93%22-id%2231%22%e6%9e%84%e9%80%a0%e6%96%b9%e6%b3%95font)
+  - [<font face="楷体" id="3.2">add方法</font>](#font-face%22%e6%a5%b7%e4%bd%93%22-id%2232%22add%e6%96%b9%e6%b3%95font)
+  - [<font face="楷体" id="3.3">根据位置取数据的方法</font>](#font-face%22%e6%a5%b7%e4%bd%93%22-id%2233%22%e6%a0%b9%e6%8d%ae%e4%bd%8d%e7%bd%ae%e5%8f%96%e6%95%b0%e6%8d%ae%e7%9a%84%e6%96%b9%e6%b3%95font)
+  - [<font face="楷体" id="3.4">根据对象得到索引的方法</font>](#font-face%22%e6%a5%b7%e4%bd%93%22-id%2234%22%e6%a0%b9%e6%8d%ae%e5%af%b9%e8%b1%a1%e5%be%97%e5%88%b0%e7%b4%a2%e5%bc%95%e7%9a%84%e6%96%b9%e6%b3%95font)
+  - [<font face="楷体" id="3.5">检查链表是否包含某对象的方法：</font>](#font-face%22%e6%a5%b7%e4%bd%93%22-id%2235%22%e6%a3%80%e6%9f%a5%e9%93%be%e8%a1%a8%e6%98%af%e5%90%a6%e5%8c%85%e5%90%ab%e6%9f%90%e5%af%b9%e8%b1%a1%e7%9a%84%e6%96%b9%e6%b3%95font)
+  - [<font face="楷体" id="3.6">删除方法</font>](#font-face%22%e6%a5%b7%e4%bd%93%22-id%2236%22%e5%88%a0%e9%99%a4%e6%96%b9%e6%b3%95font)
+- [<font face="楷体" id="4">LinkedList类常用方法测试</font>](#font-face%22%e6%a5%b7%e4%bd%93%22-id%224%22linkedlist%e7%b1%bb%e5%b8%b8%e7%94%a8%e6%96%b9%e6%b3%95%e6%b5%8b%e8%af%95font)
 <!-- /MarkdownTOC -->
 
 ## <font face="楷体" id="1">简介</font>
@@ -23,7 +21,7 @@ List list=Collections.synchronizedList(new LinkedList(...));
 ```
 ## <font face="楷体" id="2">内部结构分析</font>
 **如下图所示：**
-![LinkedList内部结构](https://user-gold-cdn.xitu.io/2018/3/19/1623e363fe0450b0?w=600&h=481&f=jpeg&s=18502)
+![LinkedList内部结构](../../../media/pictures/Java/linklist.jpg)
 看完了图之后，我们再看LinkedList类中的一个<font color="red">**内部私有类Node**</font>就很好理解了：
 ```java
 private static class Node<E> {

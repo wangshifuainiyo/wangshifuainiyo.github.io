@@ -1,63 +1,59 @@
-点击关注[公众号](#公众号)及时获取笔主最新更新文章，并可免费领取本文档配套的《Java面试突击》以及Java工程师必备学习资源。
 
-<!-- TOC -->
-
-- [1. 面向对象和面向过程的区别](#1-面向对象和面向过程的区别)
-- [2. Java 语言有哪些特点?](#2-java-语言有哪些特点)
-- [3. 关于 JVM JDK 和 JRE 最详细通俗的解答](#3-关于-jvm-jdk-和-jre-最详细通俗的解答)
-    - [JVM](#jvm)
-    - [JDK 和 JRE](#jdk-和-jre)
-- [4. Oracle JDK 和 OpenJDK 的对比](#4-oracle-jdk-和-openjdk-的对比)
-- [5. Java和C++的区别?](#5-java和c的区别)
-- [6. 什么是 Java 程序的主类 应用程序和小程序的主类有何不同?](#6-什么是-java-程序的主类-应用程序和小程序的主类有何不同)
-- [7. Java 应用程序与小程序之间有哪些差别?](#7-java-应用程序与小程序之间有哪些差别)
-- [8. 字符型常量和字符串常量的区别?](#8-字符型常量和字符串常量的区别)
-- [9. 构造器 Constructor 是否可被 override?](#9-构造器-constructor-是否可被-override)
-- [10. 重载和重写的区别](#10-重载和重写的区别)
-- [11. Java 面向对象编程三大特性: 封装 继承 多态](#11-java-面向对象编程三大特性-封装-继承-多态)
-    - [封装](#封装)
-    - [继承](#继承)
-    - [多态](#多态)
-- [12. String StringBuffer 和 StringBuilder 的区别是什么? String 为什么是不可变的?](#12-string-stringbuffer-和-stringbuilder-的区别是什么-string-为什么是不可变的)
-- [13. 自动装箱与拆箱](#13-自动装箱与拆箱)
-- [14. 在一个静态方法内调用一个非静态成员为什么是非法的?](#14-在一个静态方法内调用一个非静态成员为什么是非法的)
-- [15. 在 Java 中定义一个不做事且没有参数的构造方法的作用](#15-在-java-中定义一个不做事且没有参数的构造方法的作用)
-- [16. import java和javax有什么区别？](#16-import-java和javax有什么区别)
-- [17. 接口和抽象类的区别是什么？](#17-接口和抽象类的区别是什么)
-- [18. 成员变量与局部变量的区别有哪些？](#18-成员变量与局部变量的区别有哪些)
-- [19. 创建一个对象用什么运算符?对象实体与对象引用有何不同?](#19-创建一个对象用什么运算符对象实体与对象引用有何不同)
-- [20. 什么是方法的返回值?返回值在类的方法里的作用是什么?](#20-什么是方法的返回值返回值在类的方法里的作用是什么)
-- [21. 一个类的构造方法的作用是什么? 若一个类没有声明构造方法，该程序能正确执行吗? 为什么?](#21-一个类的构造方法的作用是什么-若一个类没有声明构造方法该程序能正确执行吗-为什么)
-- [22. 构造方法有哪些特性？](#22-构造方法有哪些特性)
-- [23. 静态方法和实例方法有何不同](#23-静态方法和实例方法有何不同)
-- [24. 对象的相等与指向他们的引用相等,两者有什么不同?](#24-对象的相等与指向他们的引用相等两者有什么不同)
-- [25. 在调用子类构造方法之前会先调用父类没有参数的构造方法,其目的是?](#25-在调用子类构造方法之前会先调用父类没有参数的构造方法其目的是)
-- [26. == 与 equals(重要)](#26--与-equals重要)
-- [27. hashCode 与 equals (重要)](#27-hashcode-与-equals-重要)
-    - [hashCode（）介绍](#hashcode介绍)
-    - [为什么要有 hashCode](#为什么要有-hashcode)
-    - [hashCode（）与equals（）的相关规定](#hashcode与equals的相关规定)
-- [28. 为什么Java中只有值传递？](#28-为什么java中只有值传递)
-- [29. 简述线程、程序、进程的基本概念。以及他们之间关系是什么?](#29-简述线程程序进程的基本概念以及他们之间关系是什么)
-- [30. 线程有哪些基本状态?](#30-线程有哪些基本状态)
-- [31 关于 final 关键字的一些总结](#31-关于-final-关键字的一些总结)
-- [32 Java 中的异常处理](#32-java-中的异常处理)
-    - [Java异常类层次结构图](#java异常类层次结构图)
-    - [Throwable类常用方法](#throwable类常用方法)
-    - [异常处理总结](#异常处理总结)
-- [33 Java序列化中如果有些字段不想进行序列化，怎么办？](#33-java序列化中如果有些字段不想进行序列化怎么办)
-- [34 获取用键盘输入常用的两种方法](#34-获取用键盘输入常用的两种方法)
-- [35 Java 中 IO 流](#35-java-中-io-流)
-    - [Java 中 IO 流分为几种?](#java-中-io-流分为几种)
-    - [既然有了字节流,为什么还要有字符流?](#既然有了字节流为什么还要有字符流)
-    - [BIO,NIO,AIO 有什么区别?](#bionioaio-有什么区别)
-- [36. 常见关键字总结:static,final,this,super](#36-常见关键字总结staticfinalthissuper)
-- [37. Collections 工具类和 Arrays 工具类常见方法总结](#37-collections-工具类和-arrays-工具类常见方法总结)
-- [参考](#参考)
-- [公众号](#公众号)
-
-<!-- /TOC -->
-
+- [1. 面向对象和面向过程的区别](#1-%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e5%92%8c%e9%9d%a2%e5%90%91%e8%bf%87%e7%a8%8b%e7%9a%84%e5%8c%ba%e5%88%ab)
+- [2. Java 语言有哪些特点?](#2-java-%e8%af%ad%e8%a8%80%e6%9c%89%e5%93%aa%e4%ba%9b%e7%89%b9%e7%82%b9)
+- [3. 关于 JVM JDK 和 JRE 最详细通俗的解答](#3-%e5%85%b3%e4%ba%8e-jvm-jdk-%e5%92%8c-jre-%e6%9c%80%e8%af%a6%e7%bb%86%e9%80%9a%e4%bf%97%e7%9a%84%e8%a7%a3%e7%ad%94)
+  - [JVM](#jvm)
+  - [JDK 和 JRE](#jdk-%e5%92%8c-jre)
+- [4. Oracle JDK 和 OpenJDK 的对比](#4-oracle-jdk-%e5%92%8c-openjdk-%e7%9a%84%e5%af%b9%e6%af%94)
+- [5. Java和C++的区别?](#5-java%e5%92%8cc%e7%9a%84%e5%8c%ba%e5%88%ab)
+- [6. 什么是 Java 程序的主类 应用程序和小程序的主类有何不同?](#6-%e4%bb%80%e4%b9%88%e6%98%af-java-%e7%a8%8b%e5%ba%8f%e7%9a%84%e4%b8%bb%e7%b1%bb-%e5%ba%94%e7%94%a8%e7%a8%8b%e5%ba%8f%e5%92%8c%e5%b0%8f%e7%a8%8b%e5%ba%8f%e7%9a%84%e4%b8%bb%e7%b1%bb%e6%9c%89%e4%bd%95%e4%b8%8d%e5%90%8c)
+- [7. Java 应用程序与小程序之间有哪些差别?](#7-java-%e5%ba%94%e7%94%a8%e7%a8%8b%e5%ba%8f%e4%b8%8e%e5%b0%8f%e7%a8%8b%e5%ba%8f%e4%b9%8b%e9%97%b4%e6%9c%89%e5%93%aa%e4%ba%9b%e5%b7%ae%e5%88%ab)
+- [8. 字符型常量和字符串常量的区别?](#8-%e5%ad%97%e7%ac%a6%e5%9e%8b%e5%b8%b8%e9%87%8f%e5%92%8c%e5%ad%97%e7%ac%a6%e4%b8%b2%e5%b8%b8%e9%87%8f%e7%9a%84%e5%8c%ba%e5%88%ab)
+- [9. 构造器 Constructor 是否可被 override?](#9-%e6%9e%84%e9%80%a0%e5%99%a8-constructor-%e6%98%af%e5%90%a6%e5%8f%af%e8%a2%ab-override)
+- [10. 重载和重写的区别](#10-%e9%87%8d%e8%bd%bd%e5%92%8c%e9%87%8d%e5%86%99%e7%9a%84%e5%8c%ba%e5%88%ab)
+    - [重载](#%e9%87%8d%e8%bd%bd)
+    - [重写](#%e9%87%8d%e5%86%99)
+- [11. Java 面向对象编程三大特性: 封装 继承 多态](#11-java-%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e7%bc%96%e7%a8%8b%e4%b8%89%e5%a4%a7%e7%89%b9%e6%80%a7-%e5%b0%81%e8%a3%85-%e7%bb%a7%e6%89%bf-%e5%a4%9a%e6%80%81)
+  - [封装](#%e5%b0%81%e8%a3%85)
+  - [继承](#%e7%bb%a7%e6%89%bf)
+  - [多态](#%e5%a4%9a%e6%80%81)
+- [12. String StringBuffer 和 StringBuilder 的区别是什么? String 为什么是不可变的?](#12-string-stringbuffer-%e5%92%8c-stringbuilder-%e7%9a%84%e5%8c%ba%e5%88%ab%e6%98%af%e4%bb%80%e4%b9%88-string-%e4%b8%ba%e4%bb%80%e4%b9%88%e6%98%af%e4%b8%8d%e5%8f%af%e5%8f%98%e7%9a%84)
+- [13. 自动装箱与拆箱](#13-%e8%87%aa%e5%8a%a8%e8%a3%85%e7%ae%b1%e4%b8%8e%e6%8b%86%e7%ae%b1)
+- [14. 在一个静态方法内调用一个非静态成员为什么是非法的?](#14-%e5%9c%a8%e4%b8%80%e4%b8%aa%e9%9d%99%e6%80%81%e6%96%b9%e6%b3%95%e5%86%85%e8%b0%83%e7%94%a8%e4%b8%80%e4%b8%aa%e9%9d%9e%e9%9d%99%e6%80%81%e6%88%90%e5%91%98%e4%b8%ba%e4%bb%80%e4%b9%88%e6%98%af%e9%9d%9e%e6%b3%95%e7%9a%84)
+- [15. 在 Java 中定义一个不做事且没有参数的构造方法的作用](#15-%e5%9c%a8-java-%e4%b8%ad%e5%ae%9a%e4%b9%89%e4%b8%80%e4%b8%aa%e4%b8%8d%e5%81%9a%e4%ba%8b%e4%b8%94%e6%b2%a1%e6%9c%89%e5%8f%82%e6%95%b0%e7%9a%84%e6%9e%84%e9%80%a0%e6%96%b9%e6%b3%95%e7%9a%84%e4%bd%9c%e7%94%a8)
+- [16. import java和javax有什么区别？](#16-import-java%e5%92%8cjavax%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab)
+- [17. 接口和抽象类的区别是什么？](#17-%e6%8e%a5%e5%8f%a3%e5%92%8c%e6%8a%bd%e8%b1%a1%e7%b1%bb%e7%9a%84%e5%8c%ba%e5%88%ab%e6%98%af%e4%bb%80%e4%b9%88)
+- [18. 成员变量与局部变量的区别有哪些？](#18-%e6%88%90%e5%91%98%e5%8f%98%e9%87%8f%e4%b8%8e%e5%b1%80%e9%83%a8%e5%8f%98%e9%87%8f%e7%9a%84%e5%8c%ba%e5%88%ab%e6%9c%89%e5%93%aa%e4%ba%9b)
+- [19. 创建一个对象用什么运算符?对象实体与对象引用有何不同?](#19-%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa%e5%af%b9%e8%b1%a1%e7%94%a8%e4%bb%80%e4%b9%88%e8%bf%90%e7%ae%97%e7%ac%a6%e5%af%b9%e8%b1%a1%e5%ae%9e%e4%bd%93%e4%b8%8e%e5%af%b9%e8%b1%a1%e5%bc%95%e7%94%a8%e6%9c%89%e4%bd%95%e4%b8%8d%e5%90%8c)
+- [20. 什么是方法的返回值?返回值在类的方法里的作用是什么?](#20-%e4%bb%80%e4%b9%88%e6%98%af%e6%96%b9%e6%b3%95%e7%9a%84%e8%bf%94%e5%9b%9e%e5%80%bc%e8%bf%94%e5%9b%9e%e5%80%bc%e5%9c%a8%e7%b1%bb%e7%9a%84%e6%96%b9%e6%b3%95%e9%87%8c%e7%9a%84%e4%bd%9c%e7%94%a8%e6%98%af%e4%bb%80%e4%b9%88)
+- [21. 一个类的构造方法的作用是什么? 若一个类没有声明构造方法，该程序能正确执行吗? 为什么?](#21-%e4%b8%80%e4%b8%aa%e7%b1%bb%e7%9a%84%e6%9e%84%e9%80%a0%e6%96%b9%e6%b3%95%e7%9a%84%e4%bd%9c%e7%94%a8%e6%98%af%e4%bb%80%e4%b9%88-%e8%8b%a5%e4%b8%80%e4%b8%aa%e7%b1%bb%e6%b2%a1%e6%9c%89%e5%a3%b0%e6%98%8e%e6%9e%84%e9%80%a0%e6%96%b9%e6%b3%95%e8%af%a5%e7%a8%8b%e5%ba%8f%e8%83%bd%e6%ad%a3%e7%a1%ae%e6%89%a7%e8%a1%8c%e5%90%97-%e4%b8%ba%e4%bb%80%e4%b9%88)
+- [22. 构造方法有哪些特性？](#22-%e6%9e%84%e9%80%a0%e6%96%b9%e6%b3%95%e6%9c%89%e5%93%aa%e4%ba%9b%e7%89%b9%e6%80%a7)
+- [23. 静态方法和实例方法有何不同](#23-%e9%9d%99%e6%80%81%e6%96%b9%e6%b3%95%e5%92%8c%e5%ae%9e%e4%be%8b%e6%96%b9%e6%b3%95%e6%9c%89%e4%bd%95%e4%b8%8d%e5%90%8c)
+- [24. 对象的相等与指向他们的引用相等,两者有什么不同?](#24-%e5%af%b9%e8%b1%a1%e7%9a%84%e7%9b%b8%e7%ad%89%e4%b8%8e%e6%8c%87%e5%90%91%e4%bb%96%e4%bb%ac%e7%9a%84%e5%bc%95%e7%94%a8%e7%9b%b8%e7%ad%89%e4%b8%a4%e8%80%85%e6%9c%89%e4%bb%80%e4%b9%88%e4%b8%8d%e5%90%8c)
+- [25. 在调用子类构造方法之前会先调用父类没有参数的构造方法,其目的是?](#25-%e5%9c%a8%e8%b0%83%e7%94%a8%e5%ad%90%e7%b1%bb%e6%9e%84%e9%80%a0%e6%96%b9%e6%b3%95%e4%b9%8b%e5%89%8d%e4%bc%9a%e5%85%88%e8%b0%83%e7%94%a8%e7%88%b6%e7%b1%bb%e6%b2%a1%e6%9c%89%e5%8f%82%e6%95%b0%e7%9a%84%e6%9e%84%e9%80%a0%e6%96%b9%e6%b3%95%e5%85%b6%e7%9b%ae%e7%9a%84%e6%98%af)
+- [26. == 与 equals(重要)](#26--%e4%b8%8e-equals%e9%87%8d%e8%a6%81)
+- [27. hashCode 与 equals (重要)](#27-hashcode-%e4%b8%8e-equals-%e9%87%8d%e8%a6%81)
+  - [hashCode（）介绍](#hashcode%e4%bb%8b%e7%bb%8d)
+  - [为什么要有 hashCode](#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e6%9c%89-hashcode)
+  - [hashCode（）与equals（）的相关规定](#hashcode%e4%b8%8eequals%e7%9a%84%e7%9b%b8%e5%85%b3%e8%a7%84%e5%ae%9a)
+- [28. 为什么Java中只有值传递？](#28-%e4%b8%ba%e4%bb%80%e4%b9%88java%e4%b8%ad%e5%8f%aa%e6%9c%89%e5%80%bc%e4%bc%a0%e9%80%92)
+- [29. 简述线程、程序、进程的基本概念。以及他们之间关系是什么?](#29-%e7%ae%80%e8%bf%b0%e7%ba%bf%e7%a8%8b%e7%a8%8b%e5%ba%8f%e8%bf%9b%e7%a8%8b%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5%e4%bb%a5%e5%8f%8a%e4%bb%96%e4%bb%ac%e4%b9%8b%e9%97%b4%e5%85%b3%e7%b3%bb%e6%98%af%e4%bb%80%e4%b9%88)
+- [30. 线程有哪些基本状态?](#30-%e7%ba%bf%e7%a8%8b%e6%9c%89%e5%93%aa%e4%ba%9b%e5%9f%ba%e6%9c%ac%e7%8a%b6%e6%80%81)
+- [31 关于 final 关键字的一些总结](#31-%e5%85%b3%e4%ba%8e-final-%e5%85%b3%e9%94%ae%e5%ad%97%e7%9a%84%e4%b8%80%e4%ba%9b%e6%80%bb%e7%bb%93)
+- [32 Java 中的异常处理](#32-java-%e4%b8%ad%e7%9a%84%e5%bc%82%e5%b8%b8%e5%a4%84%e7%90%86)
+  - [Java异常类层次结构图](#java%e5%bc%82%e5%b8%b8%e7%b1%bb%e5%b1%82%e6%ac%a1%e7%bb%93%e6%9e%84%e5%9b%be)
+  - [Throwable类常用方法](#throwable%e7%b1%bb%e5%b8%b8%e7%94%a8%e6%96%b9%e6%b3%95)
+  - [异常处理总结](#%e5%bc%82%e5%b8%b8%e5%a4%84%e7%90%86%e6%80%bb%e7%bb%93)
+- [33 Java序列化中如果有些字段不想进行序列化，怎么办？](#33-java%e5%ba%8f%e5%88%97%e5%8c%96%e4%b8%ad%e5%a6%82%e6%9e%9c%e6%9c%89%e4%ba%9b%e5%ad%97%e6%ae%b5%e4%b8%8d%e6%83%b3%e8%bf%9b%e8%a1%8c%e5%ba%8f%e5%88%97%e5%8c%96%e6%80%8e%e4%b9%88%e5%8a%9e)
+- [34 获取用键盘输入常用的两种方法](#34-%e8%8e%b7%e5%8f%96%e7%94%a8%e9%94%ae%e7%9b%98%e8%be%93%e5%85%a5%e5%b8%b8%e7%94%a8%e7%9a%84%e4%b8%a4%e7%a7%8d%e6%96%b9%e6%b3%95)
+- [35 Java 中 IO 流](#35-java-%e4%b8%ad-io-%e6%b5%81)
+  - [Java 中 IO 流分为几种?](#java-%e4%b8%ad-io-%e6%b5%81%e5%88%86%e4%b8%ba%e5%87%a0%e7%a7%8d)
+  - [既然有了字节流,为什么还要有字符流?](#%e6%97%a2%e7%84%b6%e6%9c%89%e4%ba%86%e5%ad%97%e8%8a%82%e6%b5%81%e4%b8%ba%e4%bb%80%e4%b9%88%e8%bf%98%e8%a6%81%e6%9c%89%e5%ad%97%e7%ac%a6%e6%b5%81)
+  - [BIO,NIO,AIO 有什么区别?](#bionioaio-%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab)
+- [36. 常见关键字总结:static,final,this,super](#36-%e5%b8%b8%e8%a7%81%e5%85%b3%e9%94%ae%e5%ad%97%e6%80%bb%e7%bb%93staticfinalthissuper)
+- [37. Collections 工具类和 Arrays 工具类常见方法总结](#37-collections-%e5%b7%a5%e5%85%b7%e7%b1%bb%e5%92%8c-arrays-%e5%b7%a5%e5%85%b7%e7%b1%bb%e5%b8%b8%e8%a7%81%e6%96%b9%e6%b3%95%e6%80%bb%e7%bb%93)
+  - [38. 深拷贝 vs 浅拷贝](#38-%e6%b7%b1%e6%8b%b7%e8%b4%9d-vs-%e6%b5%85%e6%8b%b7%e8%b4%9d)
+- [参考](#%e5%8f%82%e8%80%83)
 ## 1. 面向对象和面向过程的区别
 
 - **面向过程** ：**面向过程性能比面向对象高。** 因为类调用时需要实例化，开销比较大，比较消耗资源，所以当性能是最重要的考量因素的时候，比如单片机、嵌入式开发、Linux/Unix等一般采用面向过程开发。但是，**面向过程没有面向对象易维护、易复用、易扩展。** 
@@ -94,7 +90,7 @@ Java虚拟机（JVM）是运行 Java 字节码的虚拟机。JVM有针对不同�
 
 **Java 程序从源代码到运行一般有下面3步：**
 
-![Java程序运行过程](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/Java%20%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B.png)
+![Java程序运行过程](../../media/pictures/Java/java程序运行过程.jpg)
 
 我们需要格外注意的是 .class->机器码 这一步。在这一步 JVM 类加载器首先加载字节码文件，然后通过解释器逐行解释执行，这种方式的执行速度会相对比较慢。而且，有些方法和代码块是经常需要被调用的(也就是所谓的热点代码)，所以后面引进了 JIT 编译器，而JIT 属于运行时编译。当 JIT 编译器完成第一次编译后，其会将字节码对应的机器码保存下来，下次可以直接使用。而我们知道，机器码的运行效率肯定是高于 Java 解释器的。这也解释了我们为什么经常会说 Java 是编译与解释共存的语言。
 
@@ -157,8 +153,7 @@ JRE 是 Java运行时环境。它是运行已编译 Java 程序所需的所有�
 3. 占内存大小 字符常量只占2个字节; 字符串常量占若干个字节 (**注意： char在Java中占两个字节**)
 
 > java编程思想第四版：2.2.2节
-![](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-9-15/86735519.jpg)
-
+![](../../media/pictures/Java/Java常量.jpg)
 ## 9. 构造器 Constructor 是否可被 override?
 
 Constructor 不能被 override（重写）,但是可以 overload（重载）,所以你可以看到一个类中有多个构造函数的情况。
@@ -171,8 +166,7 @@ Constructor 不能被 override（重写）,但是可以 overload（重载）,所
 
 下面是《Java核心技术》对重载这个概念的介绍：
 
-![](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/bg/desktopjava核心技术-重载.jpg)　
-
+![](../../media/pictures/kafka/重载&重写.jpg)
 #### 重写
 
  重写是子类对父类的允许访问的方法的实现过程进行重新编写,发生在子类中，方法名、参数列表必须相同，返回值范围小于等于父类，抛出的异常范围小于等于父类，访问修饰符范围大于等于父类。另外，如果父类方法访问修饰符为 private 则子类就不能重写该方法。**也就是说方法提供的行为改变，而方法的外貌并没有改变。** 
@@ -383,12 +377,9 @@ hashCode() 的作用是获取哈希码，也称为散列码；它实际上是返
 
 Java 线程在运行的生命周期中的指定时刻只可能处于下面6种不同状态的其中一个状态（图源《Java 并发编程艺术》4.1.4节）。
 
-![Java线程的状态](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/19-1-29/Java%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81.png)
+![Java线程的状态](../../media/pictures/Java/Java线程的状态.png)
 
-线程在生命周期中并不是固定处于某一个状态而是随着代码的执行在不同状态之间切换。Java 线程状态变迁如下图所示（图源《Java 并发编程艺术》4.1.4节）：
-
-![Java线程状态变迁](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/19-1-29/Java%20%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E5%8F%98%E8%BF%81.png)
-
+![Java线程状态变迁](../../media/pictures/Java/Java%20线程状态变迁.png)
 
 
 由上图可以看出：
@@ -397,7 +388,7 @@ Java 线程在运行的生命周期中的指定时刻只可能处于下面6种�
 
 > 操作系统隐藏 Java虚拟机（JVM）中的 READY 和 RUNNING 状态，它只能看到 RUNNABLE 状态（图源：[HowToDoInJava](https://howtodoinjava.com/)：[Java Thread Life Cycle and Thread States](https://howtodoinjava.com/java/multi-threading/java-thread-life-cycle-and-thread-states/)），所以 Java 系统一般将这两个状态统称为 **RUNNABLE（运行中）** 状态 。
 
-![RUNNABLE-VS-RUNNING](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3/RUNNABLE-VS-RUNNING.png)
+![RUNNABLE-VS-RUNNING](../../media/pictures/Java/RUNNABLE-VS-RUNNING.png)
 
 当线程执行 `wait()`方法之后，线程进入 **WAITING（等待）**状态。进入等待状态的线程需要依靠其他线程的通知才能够返回到运行状态，而 **TIME_WAITING(超时等待)** 状态相当于在等待状态的基础上增加了超时限制，比如通过 `sleep（long millis）`方法或 `wait（long millis）`方法可以将 Java 线程置于 TIMED WAITING 状态。当超时时间到达后 Java 线程将会返回到 RUNNABLE 状态。当线程调用同步方法时，在没有获取到锁的情况下，线程将会进入到 **BLOCKED（阻塞）** 状态。线程在执行 Runnable 的` run() `方法之后将会进入到 **TERMINATED（终止）** 状态。
 
@@ -413,8 +404,7 @@ final关键字主要用在三个地方：变量、方法、类。
 
 ### Java异常类层次结构图
 
-![Java异常类层次结构图](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-2/Exception.png)
-
+![Java异常类层次结构图](../../media/pictures/Java/Exception.png)
 
 
 在 Java 中，所有的异常都有一个共同的祖先java.lang包中的 **Throwable类**。Throwable： 有两个重要的子类：**Exception（异常）** 和 **Error（错误）** ，二者都是 Java 异常处理的重要子类，各自都包含大量子类。
@@ -504,12 +494,11 @@ Java Io流共涉及40多个类，这些类看上去很杂乱，但实际上很�
 
 按操作方式分类结构图：
 
-![IO-操作方式分类](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/IO-操作方式分类.png)
-
+![IO-操作方式分类](../../media/pictures/Java/IO-操作方式分类.png)
 
 按操作对象分类结构图：
 
-![IO-操作对象分类](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/IO-操作对象分类.png)
+![IO-操作对象分类](../../media/pictures/Java/IO-操作对象分类.png)
 
 ### 既然有了字节流,为什么还要有字符流?
 
@@ -525,32 +514,20 @@ Java Io流共涉及40多个类，这些类看上去很杂乱，但实际上很�
 
 ## 36. 常见关键字总结:static,final,this,super
 
-详见笔主的这篇文章: <https://gitee.com/SnailClimb/JavaGuide/blob/master/docs/java/Basis/final、static、this、super.md>
+详见笔主的这篇文章: <https://wangshifuainiyo.github.io/#/docs/java/basis/final%E3%80%81static%E3%80%81this%E3%80%81super>
 
 ## 37. Collections 工具类和 Arrays 工具类常见方法总结
 
-详见笔主的这篇文章: <https://gitee.com/SnailClimb/JavaGuide/blob/master/docs/java/Basis/Arrays,CollectionsCommonMethods.md>
-
+详见笔主的这篇文章: <https://wangshifuainiyo.github.io/#/docs/java/Basis/Arrays,CollectionsCommonMethods>
 ### 38. 深拷贝 vs 浅拷贝
 
 1. **浅拷贝**：对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝，此为浅拷贝。
 2. **深拷贝**：对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容，此为深拷贝。
 
-![deep and shallow copy](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-7/java-deep-and-shallow-copy.jpg)
 
 ## 参考
 
 - https://stackoverflow.com/questions/1906445/what-is-the-difference-between-jdk-and-jre
 - https://www.educba.com/oracle-vs-openjdk/
 - https://stackoverflow.com/questions/22358071/differences-between-oracle-jdk-and-openjdk?answertab=active#tab-top
-
-## 公众号
-
-如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号。
-
-**《Java面试突击》:** 由本文档衍生的专为面试而生的《Java面试突击》V2.0 PDF 版本[公众号](#公众号)后台回复 **"Java面试突击"** 即可免费领取！
-
-**Java工程师必备学习资源:** 一些Java工程师常用学习资源公众号后台回复关键字 **“1”** 即可免费无套路获取。 
-
-![我的公众号](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/167598cd2e17b8ec.png)
 

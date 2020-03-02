@@ -1,26 +1,23 @@
-熟练掌握 BIO,NIO,AIO 的基本概念以及一些常见问题是你准备面试的过程中不可或缺的一部分，另外这些知识点也是你学习 Netty 的基础。
 
 <!-- MarkdownTOC -->
-
-- [BIO,NIO,AIO 总结](#bionioaio-总结)
-  - [1. BIO \(Blocking I/O\)](#1-bio-blocking-io)
-    - [1.1 传统 BIO](#11-传统-bio)
-    - [1.2 伪异步 IO](#12-伪异步-io)
-    - [1.3 代码示例](#13-代码示例)
-    - [1.4 总结](#14-总结)
-  - [2. NIO \(New I/O\)](#2-nio-new-io)
-    - [2.1 NIO 简介](#21-nio-简介)
-    - [2.2 NIO的特性/NIO与IO区别](#22-nio的特性nio与io区别)
-      - [1)Non-blocking IO（非阻塞IO）](#1non-blocking-io（非阻塞io）)
-      - [2)Buffer\(缓冲区\)](#2buffer缓冲区)
-      - [3)Channel \(通道\)](#3channel-通道)
-      - [4)Selectors\(选择器\)](#4selectors选择器)
-    - [2.3  NIO 读数据和写数据方式](#23-nio-读数据和写数据方式)
-    - [2.4 NIO核心组件简单介绍](#24-nio核心组件简单介绍)
-    - [2.5 代码示例](#25-代码示例)
-  - [3. AIO  \(Asynchronous I/O\)](#3-aio-asynchronous-io)
-  - [参考](#参考)
-
+- [BIO,NIO,AIO 总结](#bionioaio-%e6%80%bb%e7%bb%93)
+  - [1. BIO (Blocking I/O)](#1-bio-blocking-io)
+    - [1.1 传统 BIO](#11-%e4%bc%a0%e7%bb%9f-bio)
+    - [1.2 伪异步 IO](#12-%e4%bc%aa%e5%bc%82%e6%ad%a5-io)
+    - [1.3 代码示例](#13-%e4%bb%a3%e7%a0%81%e7%a4%ba%e4%be%8b)
+    - [1.4 总结](#14-%e6%80%bb%e7%bb%93)
+  - [2. NIO (New I/O)](#2-nio-new-io)
+    - [2.1 NIO 简介](#21-nio-%e7%ae%80%e4%bb%8b)
+    - [2.2 NIO的特性/NIO与IO区别](#22-nio%e7%9a%84%e7%89%b9%e6%80%a7nio%e4%b8%8eio%e5%8c%ba%e5%88%ab)
+      - [1)Non-blocking IO（非阻塞IO）](#1non-blocking-io%e9%9d%9e%e9%98%bb%e5%a1%9eio)
+      - [2)Buffer(缓冲区)](#2buffer%e7%bc%93%e5%86%b2%e5%8c%ba)
+      - [3)Channel (通道)](#3channel-%e9%80%9a%e9%81%93)
+      - [4)Selector (选择器)](#4selector-%e9%80%89%e6%8b%a9%e5%99%a8)
+    - [2.3  NIO 读数据和写数据方式](#23-nio-%e8%af%bb%e6%95%b0%e6%8d%ae%e5%92%8c%e5%86%99%e6%95%b0%e6%8d%ae%e6%96%b9%e5%bc%8f)
+    - [2.4 NIO核心组件简单介绍](#24-nio%e6%a0%b8%e5%bf%83%e7%bb%84%e4%bb%b6%e7%ae%80%e5%8d%95%e4%bb%8b%e7%bb%8d)
+    - [2.5 代码示例](#25-%e4%bb%a3%e7%a0%81%e7%a4%ba%e4%be%8b)
+    - [3. AIO (Asynchronous I/O)](#3-aio-asynchronous-io)
+  - [参考](#%e5%8f%82%e8%80%83)
 <!-- /MarkdownTOC -->
 
 
@@ -53,7 +50,7 @@
 
 BIO通信（一请求一应答）模型图如下(图源网络，原出处不明)：
 
-![传统BIO通信模型图](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2.png)
+![传统BIO通信模型图](../../media/pictures/Java/2.png)
 
 采用 **BIO 通信模型** 的服务端，通常由一个独立的 Acceptor 线程负责监听客户端的连接。我们一般通过在`while(true)` 循环中服务端会调用 `accept()` 方法等待接收客户端的连接的方式监听请求，请求一旦接收到一个连接请求，就可以建立通信套接字在这个通信套接字上进行读写操作，此时不能再接收其他客户端连接请求，只能等待同当前连接的客户端的操作执行完成， 不过可以通过多线程来支持多个客户端的连接，如上图所示。
 
@@ -69,7 +66,7 @@ BIO通信（一请求一应答）模型图如下(图源网络，原出处不明)
 
 伪异步IO模型图(图源网络，原出处不明)：
 
-![伪异步IO模型图](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/3.png)
+![伪异步IO模型图](../../media/pictures/Java/3.png)
 
 采用线程池和任务队列可以实现一种叫做伪异步的 I/O 通信框架，它的模型图如上图所示。当有新的客户端接入时，将客户端的 Socket 封装成一个Task（该任务实现java.lang.Runnable接口）投递到后端的线程池中进行处理，JDK 的线程池维护一个消息队列和 N 个活跃线程，对消息队列中的任务进行处理。由于线程池可以设置消息队列的大小和最大线程数，因此，它的资源占用是可控的，无论多少个客户端并发访问，都不会导致资源的耗尽和宕机。
 
@@ -208,7 +205,7 @@ NIO有选择器，而IO没有。
 
 选择器用于使用单个线程处理多个通道。因此，它需要较少的线程来处理这些通道。线程之间的切换对于操作系统来说是昂贵的。 因此，为了提高系统效率选择器是有用的。
 
-![一个单线程中Selector维护3个Channel的示意图](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-2/Slector.png)
+![一个单线程中Selector维护3个Channel的示意图](../../media/pictures/Java/Slector.png)
 
 ### 2.3  NIO 读数据和写数据方式
 通常来说NIO中的所有IO都是从 Channel（通道） 开始的。
@@ -218,7 +215,7 @@ NIO有选择器，而IO没有。
 
 数据读取和写入操作图示：
 
-![NIO读写数据的方式](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-2/NIO读写数据的方式.png)
+![NIO读写数据的方式](../../media/pictures/Java/NIO读写数据的方式.png)
 
 
 ### 2.4 NIO核心组件简单介绍
