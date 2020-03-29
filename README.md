@@ -64,6 +64,7 @@
 ## 杂七杂八
 
 * [Java 加密](docs/others/Java加密.md)
+* [社会毒打](docs/others/社会毒打.md)
 * [肖梦迪是混蛋](docs/others/肖梦迪是混蛋.md)
 
 
